@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/academy/static/css/main.a3d5a440.css",
-    "main.js": "/academy/static/js/main.209d523b.js",
-    "static/js/504.064a7462.chunk.js": "/academy/static/js/504.064a7462.chunk.js",
+    "main.js": "/academy/static/js/main.b909ec40.js",
+    "static/js/888.ce54b215.chunk.js": "/academy/static/js/888.ce54b215.chunk.js",
     "static/js/855.89d30af4.chunk.js": "/academy/static/js/855.89d30af4.chunk.js",
-    "static/media/Course.png": "/academy/static/media/Course.11872a62f2c45b9e4d5b.png",
-    "static/media/disk.png": "/academy/static/media/disk.1aa5d5c3046cf42e92c2.png",
-    "static/media/AnyAlbum.png": "/academy/static/media/AnyAlbum.65afac7fa8f28e4f9d40.png",
-    "static/media/Bowie.png": "/academy/static/media/Bowie.da794890b26228988b87.png",
-    "static/media/Hendrix.png": "/academy/static/media/Hendrix.9275ad025edc6557962d.png",
-    "static/media/Metalica.png": "/academy/static/media/Metalica.50b863f2ff6e9804de81.png",
-    "static/media/PinkFloyd.png": "/academy/static/media/PinkFloyd.5619c33b0215a4eff83a.png",
-    "static/media/ACDC.png": "/academy/static/media/ACDC.3190468bcbc71e354819.png",
+    "static/media/Course.webp": "/academy/static/media/Course.24dc3d84bcd89471ae6e.webp",
+    "static/media/AnyAlbum.webp": "/academy/static/media/AnyAlbum.63e25a88e53bfc10acf8.webp",
+    "static/media/Bowie.webp": "/academy/static/media/Bowie.ee64fb9fc792db28971f.webp",
+    "static/media/Hendrix.webp": "/academy/static/media/Hendrix.a57501bb3a72dd7b1b03.webp",
+    "static/media/disk.webp": "/academy/static/media/disk.fad3711362280129687d.webp",
+    "static/media/Metalica.webp": "/academy/static/media/Metalica.6b8b3ba211bc87c488ec.webp",
+    "static/media/PinkFloyd.webp": "/academy/static/media/PinkFloyd.b8862ae1ad51236defbd.webp",
+    "static/media/ACDC.webp": "/academy/static/media/ACDC.432d1b136259acfb9541.webp",
     "static/media/АКАДЕМИЯ GRECORDS.svg": "/academy/static/media/АКАДЕМИЯ GRECORDS.4c2b4f924d7acb3597ebf98d1abc4c49.svg",
     "index.html": "/academy/index.html",
     "main.a3d5a440.css.map": "/academy/static/css/main.a3d5a440.css.map",
-    "main.209d523b.js.map": "/academy/static/js/main.209d523b.js.map",
-    "504.064a7462.chunk.js.map": "/academy/static/js/504.064a7462.chunk.js.map",
+    "main.b909ec40.js.map": "/academy/static/js/main.b909ec40.js.map",
+    "888.ce54b215.chunk.js.map": "/academy/static/js/888.ce54b215.chunk.js.map",
     "855.89d30af4.chunk.js.map": "/academy/static/js/855.89d30af4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a3d5a440.css",
-    "static/js/main.209d523b.js"
+    "static/js/main.b909ec40.js"
   ]
 }
