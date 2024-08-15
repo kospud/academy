@@ -1,9 +1,14 @@
 {
   "files": {
-    "main.css": "/academy/static/css/main.a3d5a440.css",
-    "main.js": "/academy/static/js/main.b909ec40.js",
-    "static/js/888.ce54b215.chunk.js": "/academy/static/js/888.ce54b215.chunk.js",
-    "static/js/855.89d30af4.chunk.js": "/academy/static/js/855.89d30af4.chunk.js",
+    "main.css": "/academy/static/css/main.62899ac9.css",
+    "main.js": "/academy/static/js/main.59dacb5c.js",
+    "static/css/160.4bf3a9e4.chunk.css": "/academy/static/css/160.4bf3a9e4.chunk.css",
+    "static/js/160.6c5658b6.chunk.js": "/academy/static/js/160.6c5658b6.chunk.js",
+    "static/js/416.55b00100.chunk.js": "/academy/static/js/416.55b00100.chunk.js",
+    "static/media/article4.png": "/academy/static/media/article4.287eb9837771d801fbe8.png",
+    "static/media/article3.png": "/academy/static/media/article3.35c60eabed3ffadf8519.png",
+    "static/media/article2.png": "/academy/static/media/article2.577b57e88f876219ab66.png",
+    "static/media/article1.png": "/academy/static/media/article1.d1b1f553de2698e224f0.png",
     "static/media/Course.webp": "/academy/static/media/Course.24dc3d84bcd89471ae6e.webp",
     "static/media/AnyAlbum.webp": "/academy/static/media/AnyAlbum.63e25a88e53bfc10acf8.webp",
     "static/media/Bowie.webp": "/academy/static/media/Bowie.ee64fb9fc792db28971f.webp",
@@ -13,14 +18,19 @@
     "static/media/PinkFloyd.webp": "/academy/static/media/PinkFloyd.b8862ae1ad51236defbd.webp",
     "static/media/ACDC.webp": "/academy/static/media/ACDC.432d1b136259acfb9541.webp",
     "static/media/АКАДЕМИЯ GRECORDS.svg": "/academy/static/media/АКАДЕМИЯ GRECORDS.4c2b4f924d7acb3597ebf98d1abc4c49.svg",
+    "static/media/slick.svg": "/academy/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/academy/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/academy/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/academy/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/academy/index.html",
-    "main.a3d5a440.css.map": "/academy/static/css/main.a3d5a440.css.map",
-    "main.b909ec40.js.map": "/academy/static/js/main.b909ec40.js.map",
-    "888.ce54b215.chunk.js.map": "/academy/static/js/888.ce54b215.chunk.js.map",
-    "855.89d30af4.chunk.js.map": "/academy/static/js/855.89d30af4.chunk.js.map"
+    "main.62899ac9.css.map": "/academy/static/css/main.62899ac9.css.map",
+    "main.59dacb5c.js.map": "/academy/static/js/main.59dacb5c.js.map",
+    "160.4bf3a9e4.chunk.css.map": "/academy/static/css/160.4bf3a9e4.chunk.css.map",
+    "160.6c5658b6.chunk.js.map": "/academy/static/js/160.6c5658b6.chunk.js.map",
+    "416.55b00100.chunk.js.map": "/academy/static/js/416.55b00100.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3d5a440.css",
-    "static/js/main.b909ec40.js"
+    "static/css/main.62899ac9.css",
+    "static/js/main.59dacb5c.js"
   ]
 }
