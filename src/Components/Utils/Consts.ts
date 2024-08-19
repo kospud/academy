@@ -1,1 +1,1 @@
-export const MAIN_ROUTE="/academy/main"
+export const MAIN_ROUTE="/academy"

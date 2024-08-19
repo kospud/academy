@@ -1,4 +1,5 @@
-body {
+html,body {
+  max-height: 100dvh;
   margin: 0;
   font-family: "Manrope", sans-serif;
   background-color: black;
