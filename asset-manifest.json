@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/academy/static/css/main.62899ac9.css",
-    "main.js": "/academy/static/js/main.c9d33b12.js",
-    "static/css/211.d7da5f56.chunk.css": "/academy/static/css/211.d7da5f56.chunk.css",
-    "static/js/211.5cdb421b.chunk.js": "/academy/static/js/211.5cdb421b.chunk.js",
+    "main.js": "/academy/static/js/main.4ec16cea.js",
+    "static/css/616.1c63acdd.chunk.css": "/academy/static/css/616.1c63acdd.chunk.css",
+    "static/js/616.dcea9a75.chunk.js": "/academy/static/js/616.dcea9a75.chunk.js",
     "static/js/913.2cc4de67.chunk.js": "/academy/static/js/913.2cc4de67.chunk.js",
     "static/media/article4.png": "/academy/static/media/article4.287eb9837771d801fbe8.png",
     "static/media/article3.png": "/academy/static/media/article3.35c60eabed3ffadf8519.png",
@@ -11,6 +11,7 @@
     "static/media/article1.png": "/academy/static/media/article1.d1b1f553de2698e224f0.png",
     "static/media/Course.webp": "/academy/static/media/Course.24dc3d84bcd89471ae6e.webp",
     "static/media/AnyAlbum.webp": "/academy/static/media/AnyAlbum.63e25a88e53bfc10acf8.webp",
+    "static/media/logoWhite.webp": "/academy/static/media/logoWhite.501f59a6627e41e4c100.webp",
     "static/media/Bowie.webp": "/academy/static/media/Bowie.ee64fb9fc792db28971f.webp",
     "static/media/Hendrix.webp": "/academy/static/media/Hendrix.a57501bb3a72dd7b1b03.webp",
     "static/media/disk.webp": "/academy/static/media/disk.fad3711362280129687d.webp",
@@ -26,13 +27,13 @@
     "static/media/slick.woff": "/academy/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/academy/index.html",
     "main.62899ac9.css.map": "/academy/static/css/main.62899ac9.css.map",
-    "main.c9d33b12.js.map": "/academy/static/js/main.c9d33b12.js.map",
-    "211.d7da5f56.chunk.css.map": "/academy/static/css/211.d7da5f56.chunk.css.map",
-    "211.5cdb421b.chunk.js.map": "/academy/static/js/211.5cdb421b.chunk.js.map",
+    "main.4ec16cea.js.map": "/academy/static/js/main.4ec16cea.js.map",
+    "616.1c63acdd.chunk.css.map": "/academy/static/css/616.1c63acdd.chunk.css.map",
+    "616.dcea9a75.chunk.js.map": "/academy/static/js/616.dcea9a75.chunk.js.map",
     "913.2cc4de67.chunk.js.map": "/academy/static/js/913.2cc4de67.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.62899ac9.css",
-    "static/js/main.c9d33b12.js"
+    "static/js/main.4ec16cea.js"
   ]
 }
