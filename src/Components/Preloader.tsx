@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const PreloaderContainer=styled.div`
 position: fixed;
 width: 100%;
-height: 100%;
+height: 100svh;
 background-color: #161515;
 z-index: 20;
 display: flex;

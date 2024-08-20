@@ -1,9 +1,13 @@
 import React from "react";
-import { MAIN_ROUTE } from "./Consts";
+import { COURSE_PAGE_ROUTE, MAIN_ROUTE } from "./Consts";
 
 export const PublicRoutes=[
     {
         component: React.lazy(()=>import('./../Main/MainPage')),
         path: MAIN_ROUTE
+    },
+    {
+        component: React.lazy(()=>import("./../CoursePage/CoursePage")),
+        path: COURSE_PAGE_ROUTE
     }
 ]

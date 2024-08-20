@@ -38,8 +38,8 @@ const pageTopBlockAlbums = [
     src: metalica,//Ссылка на картинку
     startPosition: { x: "100%", y: '80%', rotate: 23.33 },//Начальныый translate и rotate
     endPosition: { x: "-88%", y: '100%', rotate: -3.33 },//Конечный translate и rotate
-    startPositionMobile: { x: "-10%", y: '-30%', rotate: 23.33 },//Начальныый translate и rotate
-    endPositionMobile: { x: "-88%", y: '-70%', rotate: -23.33 },//Конечный translate и rotate
+    startPositionMobile: { x: "10%", y: '10%', rotate: 23.33 },//Начальныый translate и rotate
+    endPositionMobile: { x: "-95%", y: '0%', rotate: -1.33 },//Конечный translate и rotate
     rotate: 23.33,
     zIndex: 3
   },
@@ -47,8 +47,8 @@ const pageTopBlockAlbums = [
     src: bowie,
     startPosition: { x: "10%", y: "30%", rotate: 12.4, },
     endPosition: { x: "-98%", y: "50%", rotate: 22.4, },
-    startPositionMobile: { x: "10%", y: "0%", rotate: 12.4, },
-    endPositionMobile: { x: "-98%", y: "0%", rotate: 15.4, },
+    startPositionMobile: { x: "0%", y: "-50%", rotate: 12.4, },
+    endPositionMobile: { x: "-98%", y: "-70%", rotate: 15.4, },
     rotate: 12.4,
     zIndex: 2
   },
@@ -73,7 +73,7 @@ const pageTopBlockAlbums = [
   {
     src: acdc,
     startPosition: { x: "240%", y: "10%", rotate: -12, },
-    endPosition: { x: "425%", y: "10%", rotate: -20 },
+    endPosition: { x: "430%", y: "10%", rotate: -5 },
     startPositionMobile: { x: "120%", y: "0%", rotate: -12, },
     endPositionMobile: { x: "210%", y: "-10%", rotate: -20 },
     rotate: 12.4,
@@ -136,6 +136,7 @@ function MainPage() {
         }
       })
       diskTl.fromTo('#disk', { rotate: 720 }, { rotate: 0 }, 0)
+      console.log('animations added')
     }
 
     if (scrollbar) {
@@ -157,14 +158,14 @@ function MainPage() {
       })
 
       scrollbar.addListener(ScrollTrigger.update)
+      console.log('desktop animations')
       setAnimations()
     }else if(isMobile){
+      console.log('mobile animations')
       setAnimations()
     }
   }, [scrollbar])
 
-
-  let img: HTMLImageElement[] = []
   useEffect(() => {
     const loadAllImages = async () => {
       const images = pageTopBlockAlbums.map(({ src }) => LoadImageAsync(src))
@@ -175,6 +176,13 @@ function MainPage() {
 
     loadAllImages();
   }, [])
+
+  useEffect(()=>{
+    return ()=>{
+      console.log('animations destroyed?')
+      gsap.killTweensOf("*");
+    }
+  },[])
   return (
     <>
       <Preloader isLoading={isLoading} />
@@ -190,7 +198,7 @@ function MainPage() {
               />)
             }
           </PageTopBlockAlbums>
-          {!isDesktop && !isTablet ? <PageMobileHeder academy={academy} grecords={grecords}/> : <PageHeader header={pageHeader} />}
+          {!isDesktop && !isTablet ? <PageMobileHeder lines={[academy, grecords]}/> : <PageHeader header={pageHeader} />}
           <PageSmallHeader>{pageSmallHeader.toUpperCase()}</PageSmallHeader>
         </PageTopBlock>
         <PageContent>

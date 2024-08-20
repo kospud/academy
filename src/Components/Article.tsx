@@ -8,9 +8,10 @@ import article1 from '../img/Article/article1.png'
 import article2 from '../img/Article/article2.png'
 import article3 from '../img/Article/article3.png'
 import article4 from '../img/Article/article4.png'
-import { ExternalLink, FontSize18, FontSize36, MarginBottom24, MarginBottom45 } from './PageBlocks';
+import { ExternalLink, FontSize18, FontSize36 } from './PageBlocks';
 import { Link } from 'react-router-dom';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
+import { MarginBottom45, MarginBottom24 } from './Gaps';
 
 const ArticleElement = styled.div`
 width: 96%;
@@ -176,7 +177,7 @@ height: 24svh;
 }
 `
 
-const LinkBlock = styled.div`
+export const LinkBlock = styled.div`
 height: 4.2svw;
 width: 16.3svw;
 display: flex;

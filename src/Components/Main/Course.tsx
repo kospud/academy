@@ -3,10 +3,11 @@ import FadeInComponent from '../FadeInComponent'
 import { styled } from 'styled-components'
 import coursePhoto from '../../img/main/Course.webp'
 import { Link } from 'react-router-dom'
-import { FontSize36, FontSize64, MarginBootom180, Spacer } from '../PageBlocks'
+import { FontSize36, FontSize64, Spacer } from '../PageBlocks'
 import Slider, { Settings } from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { MarginBootom180 } from '../Gaps'
 
 
 const CoursesContainer=styled(FadeInComponent)`
@@ -137,7 +138,7 @@ function Course({ course }: CourseProps) {
                 <CourseTitle>{title.toUpperCase()}</CourseTitle>
                 <CourseDescription>{description}</CourseDescription>
                 <Spacer />
-                <Link to={`/academy/course/${id}`} style={{ textDecoration: 'none' }}>
+                <Link to={`courses/${id}`} style={{ textDecoration: 'none' }}>
                     <LinkBlock>
                         <a>ПЕРЕЙТИ</a>
                     </LinkBlock>

@@ -1,12 +1,15 @@
 import styled, { css } from "styled-components";
 import FadeInComponent from "./FadeInComponent";
 import { Link } from "react-router-dom";
-import { createContext, PropsWithChildren, useContext, useEffect, useRef } from "react";
+import { PropsWithChildren, useContext, useEffect, useRef } from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import disk from "../img/disk.webp"
 import Scrollbar from "smooth-scrollbar";
 import { isDesktop, isMobile, isTablet } from "react-device-detect";
 import { PageScrollbarContext } from "./Providers/PageScrollbarContextProvider";
+import NavBar from "./NavBar/NavBar";
+import { MarginBootom90 } from "./Gaps";
+import SmoothScrollContainer from "./SmoothScrollContainer";
 
 export const FontSize18 = css`
     font-size: 0.9svw;
@@ -48,88 +51,41 @@ font-size: 1.8svw;
         font-size: 8.6svw;
     }
 `
-export const MarginBootom180=css`
-    margin-bottom: 16.6svh;
-`
-export const MarginBootom90=css`
-    margin-bottom: 8.3svh;
-
-    @media(max-width: 1100px){
-        margin-bottom: 11.7svh;
-    }
-`
-
-export const MarginTop90=css`
-margin-top: 8.3svh;
-
-@media(max-width: 1100px){
-    margin-top: 11.7svh;
-}
-
-@media(max-width: 1100px){
-    margin-top: 7.7svh;
-}
-`
-export const MarginBottom60=css`
-margin-bottom: 5.5svh;
-`
-export const MarginBottom45=css`
-    margin-bottom: 4.1svh;
-
-    @media(max-width: 1100){
-        margin-bottom: 5svh;
-    }
-`
-export const MarginBottom24=css`
-margin-bottom: 2svh;
-`
 
 export const PageContainerElement = styled.div`
 width: 100%;
-${isDesktop && 'height: 100svh'};
 background-color: #161515;
 overflow: hidden;
 color: rgba(235, 235, 235, 1);
 overscroll-behavior-y: none;
+position: relative;
 `
 
 export const PageContainer = ({ children }: PropsWithChildren) => {
 
-    const ref = useRef(null)
-    const { setScrollbar } = useContext(PageScrollbarContext)!
-
-    useEffect(() => {
-        if (ref.current && isDesktop) {
-            const scrollbar = Scrollbar.init(ref.current, {
-                damping: 0.08,
-                alwaysShowTracks: false,
-                delegateTo: document,
-                renderByPixels: true
-            })
-
-            setScrollbar(scrollbar)
-            return () => {
-                setScrollbar(undefined)
-                scrollbar.destroy()
-            }
-        }
-    }, [])
-
-
     return (
-        <PageContainerElement id='page' ref={ref}>
-            {children}
-        </PageContainerElement>
+            <PageContainerElement id='page'>
+                {children}
+            </PageContainerElement>
     )
 }
 //Самый верхний блок страницы на всю ширину и высоту экрана
-export const PageTopBlock = styled.div`
+export const PageTopBlockElement = styled.div`
 width: 100%;
 height: 100svh;
 position: relative;
-overflow: hidden;
+//overflow: hidden;
 `
 
+export const PageTopBlock = ({ children, id }: PropsWithChildren<{ id?: string }>) => {
+
+    return <PageTopBlockElement id={id}>
+        <NavBar />
+        {
+            children
+        }
+    </PageTopBlockElement>
+}
 export const PageTopBlockAlbums = styled.div`
 position: relative;
 top: 50%;
@@ -138,6 +94,7 @@ transform: translate(-50%,-50%);
 width: 100svw;
 height: 44svw;
 z-index: 1;
+pointer-events: none;
 `
 export const PageContent = styled.div`
 width: 100%;
@@ -170,20 +127,18 @@ export const PageHeader = ({ header }: PageHeaderProps) => {
         </PageHeaderContainer>
     )
 }
-interface MobileHeaderProps{
-    academy: React.FunctionComponent<React.SVGProps<SVGSVGElement> & {
-        title?: string}>,
-    grecords: React.FunctionComponent<React.SVGProps<SVGSVGElement> & {
-        title?: string;}>
+interface MobileHeaderProps {
+
+    lines: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string; }>[]
 }
-export const PageMobileHeder=({academy, grecords}: MobileHeaderProps)=>{
-    const Academy =academy as React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-    const Grecords =grecords as React.FunctionComponent<React.SVGProps<SVGSVGElement>>
+export const PageMobileHeder = ({ lines }: MobileHeaderProps) => {
+    const headerLines = lines.map((line) => line as React.FunctionComponent<React.SVGProps<SVGSVGElement>>)
 
     return (
         <PageHeaderContainer>
-            <Academy width="100%"/>
-            <Grecords width="100%"/>
+            {
+                headerLines.map((LineComponent, index) => <LineComponent key={index} width='100%' />)
+            }
         </PageHeaderContainer>
     )
 }
@@ -196,6 +151,7 @@ export const PageSmallHeader = styled.h2`
     left: 50%;
     transform: translate(-50%);
     text-align: center;
+    //font-stretch: ultra-condensed;
 
     @media(max-width: 1100px){
         width: 53svw;
@@ -241,7 +197,7 @@ export const PageContentColumnsBlock = styled(FadeInComponent)`
     display: flex;
     ${MarginBootom90}
     z-index: 1;
-    justify-content: ${isTablet || isDesktop? 'flex-end' : 'center' };
+    justify-content: ${isTablet || isDesktop ? 'flex-end' : 'center'};
 `
 
 export const Spacer = styled.div`

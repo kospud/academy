@@ -1,17 +1,17 @@
+import {  Spacer } from "./PageBlocks";
 import React from 'react'
 import FadeInComponent from './FadeInComponent'
 import { styled } from 'styled-components'
 import { PiInstagramLogoFill } from "react-icons/pi";
-import { FaLeftLong, FaTelegram } from "react-icons/fa6";
+import { FaTelegram } from "react-icons/fa6";
 import { TfiYoutube } from "react-icons/tfi";
 import { Link } from 'react-router-dom';
-import { FontSize18, FontSize36, MarginBottom24, MarginBottom45, MarginTop90, Spacer } from './PageBlocks';
 import parse from 'html-react-parser'
 import { isDesktop, isTablet } from 'react-device-detect';
+import { MarginTop90, MarginBottom45, MarginBottom24 } from "./Gaps";
 const FooterContainer=styled(FadeInComponent)`
     position: relative;
     width: 100%;
-    //height: 45svh;
     background-color: rgba(204, 51, 39, 1);
     color: rgba(22, 21, 21, 1);
     display: flex;
@@ -93,9 +93,9 @@ a{
 }
 `
 
-const Socials=styled.div`
+const Socials=styled.div<{bottom?: string}>`
     position: absolute;
-    bottom: 9svh;
+    bottom: ${({bottom})=>bottom? bottom : '9svh'};
     left: 50%;
     transform: translateX(-50%);
     width: 10svw;
@@ -108,7 +108,6 @@ const Socials=styled.div`
     }
 
     @media (max-width: 1100px){
-        bottom: 11svh;
         font-size: 3.7svw;
         width: 21svw;
     }
@@ -168,10 +167,14 @@ const socials=[
         ref:''
     }
 ]
-export const SocialMedia=()=>{
+
+interface SocialMediaProps{
+    bottom?: string
+}
+export const SocialMedia=({bottom}: SocialMediaProps)=>{
 
     return(
-        <Socials>
+        <Socials bottom={bottom}>
             {
                 socials.map(({logo,ref})=><a href={ref}>{logo}</a>)
             }

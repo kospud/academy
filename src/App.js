@@ -3,31 +3,24 @@ import AppRouter from './Components/AppRouter';
 import PageScrollbarContextProvider from './Components/Providers/PageScrollbarContextProvider';
 import { deviceDetect } from 'react-device-detect';
 import { useEffect } from 'react';
+import SmoothScrollContainer from './Components/SmoothScrollContainer';
 
 
 
 function App() {
 
-  /*useEffect(()=>{
+  return (
+    <PageScrollbarContextProvider>
+      <SmoothScrollContainer>
+        <div className="App" >
 
-    const resizeHandler=()=>{
-      deviceDetect();
+          <BrowserRouter basename='academy'>
+            <AppRouter />
+          </BrowserRouter>
 
-    window.addEventListener('resize', resizeHandler)
-
-    return ()=>{
-      window.removeEventListener('resize', resizeHandler)
-    }
-    }
-  },[])*/
-  return ( 
-      <div className="App" >
-        <PageScrollbarContextProvider>
-        <BrowserRouter>
-          <AppRouter />
-        </BrowserRouter>
-        </PageScrollbarContextProvider>
-      </div>
+        </div>
+      </SmoothScrollContainer>
+    </PageScrollbarContextProvider>
   );
 }
 
