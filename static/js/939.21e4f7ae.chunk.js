@@ -1,9 +1,9 @@
-"use strict";(self.webpackChunkgrecords_academy=self.webpackChunkgrecords_academy||[]).push([[939],{7069:(t,e,i)=>{i.d(e,{A:()=>j});i(5043);var n=i(5013),s=i(5464);const o=i.p+"static/media/Course.24dc3d84bcd89471ae6e.webp";var r=i(7374),a=i(2382),d=(i(4430),i(9078),i(7630)),l=i(6945),h=i(8738);const c=i.p+"static/media/SoonCourse.ee64fb9fc792db28971f.webp";var m=i(579);const w=(0,s.I4)(n.A)`
+"use strict";(self.webpackChunkgrecords_academy=self.webpackChunkgrecords_academy||[]).push([[939],{7069:(t,e,i)=>{i.d(e,{A:()=>j});i(5043);var n=i(5013),s=i(5464);const o=i.p+"static/media/Course.24dc3d84bcd89471ae6e.webp";var r=i(7374),a=i(2382),d=(i(4430),i(9078),i(7630)),l=i(6945),h=i(8738);const c=i.p+"static/media/SoonCourse.ee64fb9fc792db28971f.webp";var m=i(579);const f=(0,s.I4)(n.A)`
     width: 94%;
     ${d.C3}
     display: flex;
     justify-content: flex-end;
-`,f=s.I4.div`
+`,w=s.I4.div`
     width: 100%;
 
     @media(max-width: ${l.u3}){
@@ -47,7 +47,7 @@ font-size: 1.8svw;
     font-size: 3.3svw;
 }
 
-`;function $(t){let{course:e}=t;const{title:i,description:n,photo:s,id:o}=e;return(0,m.jsx)(v,{children:(0,m.jsxs)(u,{children:[(0,m.jsx)(p,{src:s,alt:"course"}),(0,m.jsx)(r.hK,{}),(0,m.jsx)(g,{children:i}),n&&(0,m.jsx)(b,{children:n}),(0,m.jsx)(r.hK,{}),o&&(0,m.jsx)(r.CY,{to:`/courses/${o}`,children:"\u041f\u0435\u0440\u0435\u0439\u0442\u0438"})]})})}const j=()=>{const t=h.xl||h.v1?2:1,e={dots:x.length>t,infinite:x.length>t,speed:500,slidesToShow:t,slidesToScroll:1,arrows:!1};return(0,m.jsx)(w,{type:"div",children:(0,m.jsx)(f,{children:(0,m.jsx)(a.A,{...e,children:x.map((t=>(0,m.jsx)($,{course:t})))})})})}},5013:(t,e,i)=>{i.d(e,{A:()=>h});i(5043);var n=i(5843),s=i(5464),o=i(579);const r=s.AH`
+`;function $(t){let{course:e}=t;const{title:i,description:n,photo:s,id:o}=e;return(0,m.jsx)(v,{children:(0,m.jsxs)(u,{children:[(0,m.jsx)(p,{src:s,alt:"course"}),(0,m.jsx)(r.hK,{}),(0,m.jsx)(g,{children:i}),n&&(0,m.jsx)(b,{children:n}),(0,m.jsx)(r.hK,{}),o&&(0,m.jsx)(r.CY,{to:`/courses/${o}`,children:"\u041f\u0435\u0440\u0435\u0439\u0442\u0438"})]})})}const j=()=>{const t=h.xl||h.v1?2:1,e={dots:x.length>t,infinite:x.length>t,speed:500,slidesToShow:t,slidesToScroll:1,arrows:!1};return(0,m.jsx)(f,{type:"div",children:(0,m.jsx)(w,{children:(0,m.jsx)(a.A,{...e,children:x.map((t=>(0,m.jsx)($,{course:t})))})})})}},5013:(t,e,i)=>{i.d(e,{A:()=>h});i(5043);var n=i(5843),s=i(5464),o=i(579);const r=s.AH`
     opacity: ${t=>{let{inView:e}=t;return e?"1":"0"}};
     transform: ${t=>{let{inView:e}=t;return e?"none":"translateY(4svh)"}};
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -59,7 +59,7 @@ font-size: 1.8svw;
     ${r}
 `,h1:d,div:a,a:s.I4.a`
     ${r}
-`};const h=function(t){let{children:e,threshold:i,type:s,...r}=t;const{ref:a,inView:d}=(0,n.Wx)({triggerOnce:!0,threshold:i||.5}),h=l[s];return(0,o.jsx)(h,{inView:0===i||d,ref:a,...r,children:e})}},4316:(t,e,i)=>{i.d(e,{A:()=>A,q:()=>y});i(5043);var n=i(5013),s=i(5464),o=i(3002),r=i(3156),a=i(7980),d=i(5475),l=i(229),h=i(8738),c=i(7630),m=i(6945),w=i(579);const f=(0,s.I4)(n.A)`
+`};const h=function(t){let{children:e,threshold:i,type:s,...r}=t;const{ref:a,inView:d}=(0,n.Wx)({triggerOnce:!0,threshold:i||.5}),h=l[s];return(0,o.jsx)(h,{inView:0===i||d,ref:a,...r,children:e})}},4316:(t,e,i)=>{i.d(e,{A:()=>A,q:()=>y});i(5043);var n=i(5013),s=i(5464),o=i(3002),r=i(3156),a=i(7980),d=i(5475),l=i(229),h=i(8738),c=i(7630),m=i(6945),f=i(579);const w=(0,s.I4)(n.A)`
     position: relative;
     width: 100%;
     background-color: rgba(204, 51, 39, 1);
@@ -184,7 +184,7 @@ a{
         bottom: 7svh;
     }
 }
-`,$=()=>(0,w.jsx)(b,{children:(0,w.jsx)(d.N_,{to:"https://www.blacksoftware.ru/",children:"MADE IN BLACK"})}),j=[{logo:(0,w.jsx)(o.snP,{}),ref:""},{logo:(0,w.jsx)(a.$WO,{}),ref:""},{logo:(0,w.jsx)(r.hFS,{}),ref:""}],y=t=>{let{bottom:e}=t;return(0,w.jsx)(g,{bottom:e,children:j.map((t=>{let{logo:e,ref:i}=t;return(0,w.jsx)("a",{href:i,children:e})}))})},z=[{title:"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f",links:[{title:"\u043e\u0444\u0435\u0440\u0442\u0430",ref:""},{title:"\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430<br/>\u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438",ref:""},{title:"\u041e \u043d\u0430\u0441",ref:""},{title:"\u041a\u0443\u0440\u0441\u044b",ref:""},{title:"\u0411\u043b\u043e\u0433",ref:"blog"}],align:"start"},{title:"\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b",links:[{title:"info@akademi.ru",ref:"mailto: info@akademi.ru"},{title:"+7 (000) 000-00-00",ref:"tel:+7 (000) 000-00-00"}],align:"center"},{title:"\u0420\u0435\u043a\u0432\u0438\u0437\u0438\u0442\u044b",links:[{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"}],align:"end"}],k=[{title:"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f",links:[{title:"\u043e\u0444\u0435\u0440\u0442\u0430",ref:""},{title:"\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430<br/>\u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438",ref:""},{title:"\u041e \u043d\u0430\u0441",ref:""},{title:"\u041a\u0443\u0440\u0441\u044b",ref:""},{title:"\u0411\u043b\u043e\u0433",ref:"blog"}],align:"start"},{title:"\u0420\u0435\u043a\u0432\u0438\u0437\u0438\u0442\u044b",links:[{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"},{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"},{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"},{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"}],align:"end"},{title:"\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b",links:[{title:"info@akademi.ru",ref:"mailto: info@akademi.ru"},{title:"+7 (000) 000-00-00",ref:"tel:+7 (000) 000-00-00"}],align:"center"}];const A=function(){const t=h.xl||h.v1?z:k;return(0,w.jsxs)(f,{type:"div",threshold:.3,children:[(0,w.jsx)(x,{children:t.map((t=>{let{title:e,links:i,align:n}=t;return(0,w.jsxs)(v,{children:[(0,w.jsx)(u,{align:h.xl||h.v1?n:void 0,children:e}),(0,w.jsx)(p,{align:h.xl||h.v1?n:void 0,children:i.map((t=>{let{title:e,ref:i}=t;return(0,w.jsx)(d.N_,{to:i,children:(0,l.Ay)(e)})}))})]})}))}),(0,w.jsx)(y,{}),(0,w.jsx)($,{})]})}},7630:(t,e,i)=>{i.d(e,{C3:()=>o,L_:()=>a,aP:()=>l,dF:()=>d,mj:()=>r});var n=i(5464),s=i(6945);const o=n.AH`
+`,$=()=>(0,f.jsx)(b,{children:(0,f.jsx)(d.N_,{to:"https://www.blacksoftware.ru/",children:"MADE IN BLACK"})}),j=[{logo:(0,f.jsx)(o.snP,{}),ref:""},{logo:(0,f.jsx)(a.$WO,{}),ref:""},{logo:(0,f.jsx)(r.hFS,{}),ref:""}],y=t=>{let{bottom:e}=t;return(0,f.jsx)(g,{bottom:e,children:j.map((t=>{let{logo:e,ref:i}=t;return(0,f.jsx)("a",{href:i,children:e})}))})},z=[{title:"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f",links:[{title:"\u043e\u0444\u0435\u0440\u0442\u0430",ref:""},{title:"\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430<br/>\u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438",ref:""},{title:"\u041e \u043d\u0430\u0441",ref:""},{title:"\u041a\u0443\u0440\u0441\u044b",ref:""},{title:"\u0411\u043b\u043e\u0433",ref:"blog"}],align:"start"},{title:"\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b",links:[{title:"info@akademi.ru",ref:"mailto: info@akademi.ru"},{title:"+7 (000) 000-00-00",ref:"tel:+7 (000) 000-00-00"}],align:"center"},{title:"\u0420\u0435\u043a\u0432\u0438\u0437\u0438\u0442\u044b",links:[{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"}],align:"end"}],k=[{title:"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f",links:[{title:"\u043e\u0444\u0435\u0440\u0442\u0430",ref:""},{title:"\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430<br/>\u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438",ref:""},{title:"\u041e \u043d\u0430\u0441",ref:""},{title:"\u041a\u0443\u0440\u0441\u044b",ref:""},{title:"\u0411\u043b\u043e\u0433",ref:"blog"}],align:"start"},{title:"\u0420\u0435\u043a\u0432\u0438\u0437\u0438\u0442\u044b",links:[{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"},{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"},{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"},{title:'\u041e\u041e\u041e "ACADEMIA"',ref:"mailto: info@akademi.ru"}],align:"end"},{title:"\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b",links:[{title:"info@akademi.ru",ref:"mailto: info@akademi.ru"},{title:"+7 (000) 000-00-00",ref:"tel:+7 (000) 000-00-00"}],align:"center"}];const A=function(){const t=h.xl||h.v1?z:k;return(0,f.jsxs)(w,{type:"div",threshold:.3,children:[(0,f.jsx)(x,{children:t.map((t=>{let{title:e,links:i,align:n}=t;return(0,f.jsxs)(v,{children:[(0,f.jsx)(u,{align:h.xl||h.v1?n:void 0,children:e}),(0,f.jsx)(p,{align:h.xl||h.v1?n:void 0,children:i.map((t=>{let{title:e,ref:i}=t;return(0,f.jsx)(d.N_,{to:i,children:(0,l.Ay)(e)})}))})]})}))}),(0,f.jsx)(y,{}),(0,f.jsx)($,{})]})}},7630:(t,e,i)=>{i.d(e,{C3:()=>o,L_:()=>a,aP:()=>l,dF:()=>d,mj:()=>r});var n=i(5464),s=i(6945);const o=n.AH`
     margin-bottom: 16.6svh;
 
     @media(max-width: ${s.u3}){
@@ -222,7 +222,7 @@ margin-bottom: 5.5svh;
     }
 `),l=n.AH`
 margin-bottom: 2svh;
-`},7374:(t,e,i)=>{i.d(e,{aR:()=>V,my:()=>G,Gr:()=>B,LN:()=>O,TK:()=>_,Cc:()=>N,ft:()=>F,rM:()=>L,mU:()=>K,Fw:()=>W,zY:()=>Y,_D:()=>M,sg:()=>S,OO:()=>Z,CY:()=>X,hK:()=>T});var n=i(5464),s=i(5013),o=i(5475),r=i(5043),a=i(6720);const d=i.p+"static/media/disk.fad3711362280129687d.webp";var l=i(8738),h=i(579);const c=n.Ay.div`
+`},7374:(t,e,i)=>{i.d(e,{aR:()=>V,my:()=>G,Gr:()=>B,LN:()=>O,TK:()=>_,Cc:()=>N,ft:()=>F,rM:()=>L,mU:()=>K,Fw:()=>W,zY:()=>Y,_D:()=>M,sg:()=>S,OO:()=>Z,lQ:()=>R,CY:()=>X,hK:()=>T});var n=i(5464),s=i(5013),o=i(5475),r=i(5043),a=i(6720);const d=i.p+"static/media/disk.fad3711362280129687d.webp";var l=i(8738),h=i(579);const c=n.Ay.div`
   width: ${t=>{let{isOpen:e}=t;return e?"42px":"68px"}};
   height: ${t=>{let{isOpen:e}=t;return e?"42px":"14px"}}; 
   z-index: 4;
@@ -257,7 +257,7 @@ margin-bottom: 2svh;
       background-color: #adadad;
     }
   }
-`;const m=function(t){let{isOpen:e,setIsOpen:i}=t;return(0,h.jsxs)(c,{isOpen:e,onClick:()=>i(!e),children:[(0,h.jsx)("div",{}),(0,h.jsx)("div",{})]})},w=i.p+"static/media/logoWhite.501f59a6627e41e4c100.webp";var f=i(4316),x=i(6945);const v=n.I4.div`
+`;const m=function(t){let{isOpen:e,setIsOpen:i}=t;return(0,h.jsxs)(c,{isOpen:e,onClick:()=>i(!e),children:[(0,h.jsx)("div",{}),(0,h.jsx)("div",{})]})},f=i.p+"static/media/logoWhite.501f59a6627e41e4c100.webp";var w=i(4316),x=i(6945);const v=n.I4.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -280,7 +280,7 @@ align-items: center;
     width: 4dvw;
     min-width: 94px;
     z-index: 4;
-`;function $(){const[t,e]=(0,r.useState)(!1);return(0,h.jsxs)(h.Fragment,{children:[(0,h.jsx)(k,{isOpen:t,setIsOpen:e}),(0,h.jsxs)(u,{children:[(0,h.jsx)(b,{src:w,alt:"logo"}),(0,h.jsx)(m,{isOpen:t,setIsOpen:e})]})]})}const j=n.I4.div`
+`;function $(){const[t,e]=(0,r.useState)(!1);return(0,h.jsxs)(h.Fragment,{children:[(0,h.jsx)(k,{isOpen:t,setIsOpen:e}),(0,h.jsxs)(u,{children:[(0,h.jsx)(b,{src:f,alt:"logo"}),(0,h.jsx)(m,{isOpen:t,setIsOpen:e})]})]})}const j=n.I4.div`
     position: absolute;
     top: 0;
     width: 100svw;
@@ -312,7 +312,7 @@ a{
         font-size: 15svw;
     }
 }
-`,z=[{title:"\u041e \u043d\u0430\u0441",link:x.Sf},{title:"\u043a\u0443\u0440\u0441\u044b",link:""},{title:"\u0411\u043b\u043e\u0433",link:""},{title:"\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b",link:""}];function k(t){let{isOpen:e,setIsOpen:i}=t;const[n,s]=(0,r.useState)(0),a=()=>{i(!1)};return(0,h.jsxs)(j,{onWheel:t=>{t.stopPropagation(),t.preventDefault()},onTouchStart:t=>{s(t.touches[0].clientY)},onTouchMove:t=>{t.preventDefault(),t.stopPropagation();const e=t.touches[0].clientY;n-e>50&&i(!1)},isOpen:e,children:[(0,h.jsx)(y,{children:z.map((t=>{let{title:e,link:i}=t;return(0,h.jsx)(o.N_,{onClick:a,to:i,children:e})}))}),(0,h.jsx)(f.q,{bottom:"6svh"})]})}const A=function(){return(0,h.jsx)(v,{children:l.xl?(0,h.jsx)(g,{}):(0,h.jsx)($,{})})};var I=i(7630),Q=i(229);n.AH`
+`,z=[{title:"\u041e \u043d\u0430\u0441",link:x.Sf},{title:"\u043a\u0443\u0440\u0441\u044b",link:""},{title:"\u0411\u043b\u043e\u0433",link:""},{title:"\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b",link:""}];function k(t){let{isOpen:e,setIsOpen:i}=t;const[n,s]=(0,r.useState)(0),a=()=>{i(!1)};return(0,h.jsxs)(j,{onWheel:t=>{t.stopPropagation(),t.preventDefault()},onTouchStart:t=>{s(t.touches[0].clientY)},onTouchMove:t=>{t.preventDefault(),t.stopPropagation();const e=t.touches[0].clientY;n-e>50&&i(!1)},isOpen:e,children:[(0,h.jsx)(y,{children:z.map((t=>{let{title:e,link:i}=t;return(0,h.jsx)(o.N_,{onClick:a,to:i,children:e})}))}),(0,h.jsx)(w.q,{bottom:"6svh"})]})}const A=function(){return(0,h.jsx)(v,{children:l.xl?(0,h.jsx)(g,{}):(0,h.jsx)($,{})})};var I=i(7630),Q=i(229);n.AH`
     font-size: 0.9svw;
 
     @media (max-width: ${x.u3}){
@@ -345,7 +345,7 @@ font-size: 1.8svw;
         font-size: 3.7svw;
     }
     @media (max-width: ${x.Qh}){
-        font-size: 8.6svw;
+        font-size: 8svw;
     }
 `;const C=n.Ay.div`
 width: 100%;
@@ -409,7 +409,7 @@ align-items: center;
 margin: 0;
 margin-top: -2.4svw;
 ${I.mj}
-width: 94%;
+max-width: 95%;
 font-size: 7.7svw;
 text-align: center;
 font-weight: 700;
@@ -423,8 +423,8 @@ word-break: ${t=>{let{wordBreak:e}=t;return e?"break-all":"normal"}};
 }
 
 @media (max-width: ${x.Qh}) {
-    font-size: 15.4svw;
-    width: 100%;
+    font-size: 15svw;
+    //width: fit-content;
 }
 `,L=(0,n.Ay)(s.A)`
     width: 94%;
@@ -567,6 +567,8 @@ span{
     width: fit-content;
     font-family: inherit;
     transition: background-color .1s ease-in-out, color .1s ease-in-out;
+    cursor: pointer;
+    user-select: none;
     @media(max-width: ${x.u3}){
         font-size: 3.7svw;
     }
@@ -574,12 +576,12 @@ span{
         font-size: 5.7svw;
         padding-top: 3svw;
         padding-bottom: 3svw;
-        padding-right: 9svw;
-        padding-left: 9svw;
+        padding-right: 5svw;
+        padding-left: 5svw;
     }
 `,U=(0,n.Ay)(o.N_)`
    ${R}
 `,X=t=>{let{to:e,style:i,onClick:n,hover:s,children:o}=t;const[a,d]=(0,r.useState)(s||!1);return(0,h.jsx)(U,{onMouseEnter:()=>d(!a),onMouseLeave:()=>d(!a),to:e,style:i,onClick:n,hover:a,children:o})},J=n.Ay.button`
 ${R}
 `,Z=t=>{let{style:e,onClick:i,hover:n,children:s}=t;const[o,a]=(0,r.useState)(n||!1);return(0,h.jsx)(J,{onMouseEnter:()=>a(!o),onMouseLeave:()=>a(!o),style:e,onClick:i,hover:o,children:s})}}}]);
-//# sourceMappingURL=939.d7b4266c.chunk.js.map
+//# sourceMappingURL=939.21e4f7ae.chunk.js.map
