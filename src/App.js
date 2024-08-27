@@ -4,23 +4,22 @@ import PageScrollbarContextProvider from './Components/Providers/PageScrollbarCo
 import { deviceDetect } from 'react-device-detect';
 import { useEffect } from 'react';
 import SmoothScrollContainer from './Components/SmoothScrollContainer';
+import GeneralProvider from './Components/Providers/GeneralProvider';
 
 
 
 function App() {
 
   return (
-    <PageScrollbarContextProvider>
+    <GeneralProvider>
       <SmoothScrollContainer>
         <div className="App" >
-
           <BrowserRouter basename='academy'>
             <AppRouter />
           </BrowserRouter>
-
         </div>
       </SmoothScrollContainer>
-    </PageScrollbarContextProvider>
+    </GeneralProvider>
   );
 }
 

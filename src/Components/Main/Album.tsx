@@ -1,6 +1,7 @@
 import { HandySvg } from 'handy-svg'
 import React, { PropsWithChildren, SetStateAction } from 'react'
 import { styled } from 'styled-components'
+import { MobileBreakPoint } from '../Utils/Consts'
 
 
 const AlbumContainer=styled.div<{zIndex: number, rotate: number}>`
@@ -18,7 +19,7 @@ img{
     object-fit: cover;
 }
 
-@media (max-width:600px){
+@media (max-width:${MobileBreakPoint}){
   width: 48svw;
 }
 `

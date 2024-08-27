@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const PreloaderContainer=styled.div`
 position: fixed;
 width: 100%;
-height: 100svh;
+height: 100dvh;
 background-color: #161515;
 z-index: 20;
 display: flex;
@@ -13,7 +13,7 @@ justify-content: center;
 align-items: center;
 `
 
-const Loader=styled.span`
+export const Loader=styled.span`
     position: relative;
     width: 85px;
     height: 50px;

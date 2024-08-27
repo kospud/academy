@@ -6,10 +6,12 @@ import BurgerMenu from './BurgerMenu'
 import logo from '../../img/logoWhite.webp'
 import { PiTranslate } from 'react-icons/pi'
 import { SocialMedia } from '../Footer'
-import { MAIN_ROUTE } from '../Utils/Consts'
+import { MAIN_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
 
 const NavBarContainer = styled.div`
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 10svh;
     display: flex;
@@ -24,7 +26,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 
-@media (max-width: 600px){
+@media (max-width: ${MobileBreakPoint}){
     width: 88%;
 }
 `
@@ -58,11 +60,12 @@ function DesktopNavBar() {
         textDecoration: 'none',
         fontSize: '1.25svw',
         color: 'rgba(235, 235, 235, 1)',
-        fontWeight: 600
+        fontWeight: 600,
+        textTransform: 'uppercase'
     }
     return <NavBarContent>
         {
-            desktopNavBar.map(({title,link})=><Link to={link} style={LinkStyle}>{title.toUpperCase()}</Link>)
+            desktopNavBar.map(({title,link})=><Link to={link} style={LinkStyle}>{title}</Link>)
         }
     </NavBarContent>
 }
@@ -104,18 +107,18 @@ flex-direction: column;
 align-items: center;
 justify-content: space-between;
 color: rgba(22, 21, 21, 1);
-height: 44.5dvh;
+height: 44.5%;
 a{
     text-decoration: none;
     color: inherit;
     font-weight: 800;
-    font-size: 15svw;
-
-    @media (max-width: 1100px){
+    font-size: 6.6svw;
+    text-transform: uppercase;
+    @media (max-width: ${TabletBreakPoint}){
         font-size: 6.6svw;
     }
 
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         font-size: 15svw;
     }
 }
@@ -168,7 +171,7 @@ function Menu({isOpen, setIsOpen}: MenuProps){
     }
     return <MenuContainer onWheel={(e)=>{e.stopPropagation(); e.preventDefault()}} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} isOpen={isOpen}>
     <MenuContent>
-        {menuItems.map(({title, link})=><Link onClick={handleMenuItemClick} to={link}>{title.toUpperCase()}</Link>)}
+        {menuItems.map(({title, link})=><Link onClick={handleMenuItemClick} to={link}>{title}</Link>)}
     </MenuContent>
     <SocialMedia bottom='6svh'/>
     </MenuContainer>

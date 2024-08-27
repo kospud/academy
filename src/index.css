@@ -1,9 +1,14 @@
 html,body {
-  max-height: 100dvh;
+  max-height: 100svh;
   margin: 0;
   font-family: "Manrope", sans-serif;
   background-color: black;
   color: white;
   max-width: 100%;
   overscroll-behavior-y: none;
+}
+
+
+.ant-checkbox-inner::after{
+  background-color: #CC3327 !important;
 }

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import parse from 'html-react-parser'
 import { isDesktop, isTablet } from 'react-device-detect';
 import { MarginTop90, MarginBottom45, MarginBottom24 } from "./Gaps";
+import { MobileBreakPoint, TabletBreakPoint } from "./Utils/Consts";
 const FooterContainer=styled(FadeInComponent)`
     position: relative;
     width: 100%;
@@ -17,11 +18,11 @@ const FooterContainer=styled(FadeInComponent)`
     display: flex;
     justify-content: center;
 
-    @media (max-width: 1100px) {
+    @media (max-width: ${TabletBreakPoint}) {
         //height: 55svh;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: ${MobileBreakPoint}) {
         //min-height: 108svh;
     }
 `
@@ -33,10 +34,10 @@ display: flex;
 justify-content: space-between;
 margin-bottom: 8.3svh;
 
-@media (max-width: 600px){
+@media (max-width: ${MobileBreakPoint}){
     flex-direction: column;
     justify-content: flex-start;
-    width: 90%;
+    width: 88%;
     margin-bottom: 20svh;
 }
 `
@@ -45,11 +46,11 @@ const FooterBlock=styled.div`
     width: 25%;
     display: flex;
     flex-direction: column;
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         width: 100%;
     }
 
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         ${MarginBottom45}
     }
 `
@@ -60,12 +61,12 @@ const FooterBlockHeader=styled.a<{align?: string}>`
     text-align: ${({align})=>align? align : 'start'};
 
     font-size: 1.8svw;
-
-    @media(max-width: 1100px){
+    text-transform: uppercase;
+    @media(max-width: ${TabletBreakPoint}){
         font-size: 3.7svw;
     }
 
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         font-size: 8svw;
     }
 `
@@ -82,12 +83,12 @@ a{
     font-weight: 800;
     ${MarginBottom24}
     font-size: 0.9svw;
-
-    @media (max-width: 1100px){
+    text-transform: uppercase;
+    @media (max-width: ${TabletBreakPoint}){
         font-size: 1.8svw;
     }
 
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         font-size: 4.3svw;
     }
 }
@@ -107,12 +108,12 @@ const Socials=styled.div<{bottom?: string}>`
         color: rgba(22, 21, 21, 1);
     }
 
-    @media (max-width: 1100px){
+    @media (max-width: ${TabletBreakPoint}){
         font-size: 3.7svw;
         width: 21svw;
     }
 
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         font-size: 8svw;
         width: 35svw;
     }
@@ -123,7 +124,7 @@ const MadeInBlack=styled.div`
     right: 3%;
     bottom: 9svh;
 
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         right: 50%;
         transform: translate(50%,0);
         bottom: 6svh;
@@ -134,12 +135,12 @@ a{
     color: inherit;
     font-weight: 800;
     font-size: 0.9svw;
-
-    @media (max-width: 1100px){
+    text-transform: uppercase;
+    @media (max-width: ${TabletBreakPoint}){
         font-size: 1.8svw;
     }
 
-    @media(max-width: 600px){
+    @media(max-width: ${MobileBreakPoint}){
         right: 50%;
         transform: translate(50%,0);
         font-size: 4.3svw;
@@ -307,10 +308,10 @@ function Footer() {
         <FooterContent>
             {
                 links.map(({title, links,align})=><FooterBlock>
-                    <FooterBlockHeader align={isDesktop || isTablet ? align : undefined}>{title.toUpperCase()}</FooterBlockHeader>
+                    <FooterBlockHeader align={isDesktop || isTablet ? align : undefined}>{title}</FooterBlockHeader>
                     <FooterBlockContetnt align={isDesktop || isTablet ? align : undefined}>
                         {
-                            links.map(({title, ref})=><Link to={ref}>{parse(title.toUpperCase())}</Link>)
+                            links.map(({title, ref})=><Link to={ref}>{parse(title)}</Link>)
                         }
                     </FooterBlockContetnt>
                 </FooterBlock>)

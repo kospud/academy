@@ -1,54 +1,54 @@
 import styled, { css } from "styled-components";
 import FadeInComponent from "./FadeInComponent";
 import { Link } from "react-router-dom";
-import { PropsWithChildren, useContext, useEffect, useRef } from "react";
+import { PropsWithChildren, useContext, useEffect, useRef, useState } from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import disk from "../img/disk.webp"
-import Scrollbar from "smooth-scrollbar";
 import { isDesktop, isMobile, isTablet } from "react-device-detect";
-import { PageScrollbarContext } from "./Providers/PageScrollbarContextProvider";
 import NavBar from "./NavBar/NavBar";
-import { MarginBootom90 } from "./Gaps";
-import SmoothScrollContainer from "./SmoothScrollContainer";
+import { MarginBootom90, MarginBottom45 } from "./Gaps";
+import { MobileBreakPoint, TabletBreakPoint } from "./Utils/Consts";
+import parse from 'html-react-parser'
+import { Button } from "antd";
 
 export const FontSize18 = css`
     font-size: 0.9svw;
 
-    @media (max-width: 1000px){
+    @media (max-width: ${TabletBreakPoint}){
         font-size: 1.8svw;
     }
-    @media (max-width: 600px){
+    @media (max-width: ${MobileBreakPoint}){
         font-size: 4.3svw;
     }
 `
 export const FontSize64 = css`
     font-size: 3.3svw;
 
-    @media (max-width: 1000px){
+    @media (max-width: ${TabletBreakPoint}){
         font-size: 6.6svw;
     }
-    @media (max-width: 600px){
+    @media (max-width: ${MobileBreakPoint}){
         font-size: 11.1svw;
     }
 `
 export const FontSize148 = css`
 font-size: 7.7svw;
 
-@media (max-width: 1000px){
+@media (max-width: ${TabletBreakPoint}){
         font-size: 15.4svw;
     }
-    @media (max-width: 600px){
+    @media (max-width: ${MobileBreakPoint}){
         font-size: 15.4svw;
     }
 `
 
 export const FontSize36 = css`
 font-size: 1.8svw;
-@media (max-width: 1100px){
+@media (max-width: ${TabletBreakPoint}){
         font-size: 3.7svw;
     }
-    @media (max-width: 600px){
-        font-size: 8.6svw;
+    @media (max-width: ${MobileBreakPoint}){
+        font-size: 8svw;
     }
 `
 
@@ -64,9 +64,9 @@ position: relative;
 export const PageContainer = ({ children }: PropsWithChildren) => {
 
     return (
-            <PageContainerElement id='page'>
-                {children}
-            </PageContainerElement>
+        <PageContainerElement id='page'>
+            {children}
+        </PageContainerElement>
     )
 }
 //Самый верхний блок страницы на всю ширину и высоту экрана
@@ -110,35 +110,28 @@ top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
 width: 94%;
-overflow: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
 `
 
 interface PageHeaderProps {
-    header: React.FunctionComponent<React.SVGProps<SVGSVGElement> & {
-        title?: string;
-    }>
-}
-export const PageHeader = ({ header }: PageHeaderProps) => {
 
-    const Header = header as React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-    return (
-        <PageHeaderContainer>
-            <Header width="100%" />
-        </PageHeaderContainer>
-    )
+    lines: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string; }>[],
+    smallHeader?: string
+    img?: string
 }
-interface MobileHeaderProps {
-
-    lines: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string; }>[]
-}
-export const PageMobileHeder = ({ lines }: MobileHeaderProps) => {
+export const PageHeader = ({ lines, smallHeader, children=undefined }: PropsWithChildren<PageHeaderProps>) => {
     const headerLines = lines.map((line) => line as React.FunctionComponent<React.SVGProps<SVGSVGElement>>)
 
     return (
         <PageHeaderContainer>
-            {
-                headerLines.map((LineComponent, index) => <LineComponent key={index} width='100%' />)
-            }
+                {
+                    headerLines.map((LineComponent, index) => <div><LineComponent key={index} style={{ width: '100%', flexGrow: 0, height: 'auto' }} /></div>)
+                }
+                <Spacer/>
+            {smallHeader && <PageSmallHeader>{smallHeader}</PageSmallHeader>}
+            {children && children}
         </PageHeaderContainer>
     )
 }
@@ -146,18 +139,14 @@ export const PageMobileHeder = ({ lines }: MobileHeaderProps) => {
 export const PageSmallHeader = styled.h2`
     width: 46svw;
     font-size: 3.3svw;
-    position: absolute;
-    top: 63.6%;
-    left: 50%;
-    transform: translate(-50%);
     text-align: center;
-    //font-stretch: ultra-condensed;
-
-    @media(max-width: 1100px){
-        width: 53svw;
+    text-transform: uppercase;
+    margin: 0;
+    @media(max-width: ${TabletBreakPoint}){
+        width: 55svw;
         font-size: 3.7svw;
     }
-    @media (max-width: 600px) {
+    @media (max-width: ${MobileBreakPoint}) {
         width: 61svw;
         font-size: 4.3svw;
     }
@@ -170,25 +159,29 @@ export const PageContentBlock = styled.div`
     flex-direction: column;
     align-items: center;
     position: relative;
+    overflow: hidden;
 `
 
-export const PageContentBlockHeader = styled(FadeInComponent)`
+export const PageContentBlockHeader = styled(FadeInComponent)<{wordBreak?: boolean}>`
 margin: 0;
 margin-top: -2.4svw;
 ${MarginBootom90}
-width: 100%;
+max-width: 95%;
 font-size: 7.7svw;
 text-align: center;
 font-weight: 700;
 letter-spacing: -0.4svw;
 color: #CC3327;
+text-transform: uppercase;
+word-break: ${({wordBreak})=>wordBreak? 'break-all' : 'normal'};
 
-@media(max-width: 1100px){
+@media(max-width: ${TabletBreakPoint}){
     font-size: 15.4svw;
 }
 
-@media (max-width: 600px) {
-    font-size: 15.4svw;
+@media (max-width: ${MobileBreakPoint}) {
+    font-size: 15svw;
+    //width: fit-content;
 }
 `
 
@@ -198,44 +191,57 @@ export const PageContentColumnsBlock = styled(FadeInComponent)`
     ${MarginBootom90}
     z-index: 1;
     justify-content: ${isTablet || isDesktop ? 'flex-end' : 'center'};
+
+    @media (max-width: ${MobileBreakPoint}){
+        flex-direction: column;
+        width: 88%;
+    }
 `
 
 export const Spacer = styled.div`
 height: 4.15svh;
+
+@media (max-width: ${TabletBreakPoint}){
+    height: 3.9svh;
+}
+
+@media (max-width: ${MobileBreakPoint}){
+    height: 3.2svh;
+}
 `
 export const PageContentTextBlock = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 1100px) {
+    @media (max-width: ${TabletBreakPoint}) {
         width: 62%;
     }
-    @media (max-width: 600px) {
-        width: 88.4%;
+    @media (max-width: ${MobileBreakPoint}) {
+        width: 100%;
     }
 `
 
-export const PageContentText = styled.a<{ weight: number }>`
+export const PageContentText = styled.a<{ weight: number, upperCase?: boolean }>`
     display: block;
         width: 69%;
-        ${FontSize18}
         font-weight: ${({ weight }) => weight};
         text-align: justify;
         letter-spacing: -2%;
         font-size: 0.9svw;
+        text-transform: ${({ upperCase }) => upperCase ? 'uppercase' : 'none'};
 
-        @media (max-width: 1100px){
-            width: 96%;
+        @media (max-width: ${TabletBreakPoint}){
+            width: 100%;
             font-size: 1.8svw;
         }
-        @media (max-width: 600px){
+        @media (max-width: ${MobileBreakPoint}){
             width: 100%;
             font-size: 3.8svw;
         }
 `
 
-export const AnyInterestPhrase = styled(FadeInComponent)`
+export const AnyInterestPhraseElement = styled(FadeInComponent)`
 display: block;
 width: 46.9%;
 font-weight: 600;
@@ -243,13 +249,14 @@ ${MarginBootom90}
 z-index: 1;
 text-align: center;
 font-size: 1.8svw;
+text-transform: uppercase;
 
-@media(max-width: 1100px){
+@media(max-width: ${TabletBreakPoint}){
     width: 94%;
     font-size: 3.7svw;
 }
 
-@media(max-width: 600px){
+@media(max-width: ${MobileBreakPoint}){
     width: 94%;
     font-size: 8.6svw;
 }
@@ -258,19 +265,26 @@ span{
     color: #CC3327;
     font-weight: 900;
 }
-
 `
 
+export const AnyInterestPhrase = ({ children, phrase }: PropsWithChildren<{ phrase: string }>) => {
+
+
+    return <AnyInterestPhraseElement type='a'>
+        {parse(phrase)}
+    </AnyInterestPhraseElement>
+}
 const ExternalLinkElement = styled(Link)`
             display: block;
             text-decoration: none;
             color: inherit;
             font-weight: 600;
             font-size: 1.8svw;
-    @media (max-width: 1100px){
+            text-transform: uppercase;
+    @media (max-width: ${TabletBreakPoint}){
         font-size: 3.7svw;
     }
-    @media (max-width: 600px){
+    @media (max-width: ${MobileBreakPoint}){
         font-size: 4.3svw;
     }
 `
@@ -325,7 +339,83 @@ export const Disk = styled.div`
         z-index: 1;
     }
 
-    @media(max-width: 1100px){
+    @media(max-width: ${TabletBreakPoint}){
         height: 80svh;
     }
 `
+
+export const RedButtonStyle=css<{hover?: boolean}>`
+    background-color: ${({hover})=>hover? 'rgba(204, 51, 39, 1)' : 'inherit'};
+    border: solid rgba(204, 51, 39, 1);
+    text-decoration: none;
+    color: ${({hover})=>hover? 'rgba(235, 235, 235, 1)' : 'rgba(204, 51, 39, 1)'};
+    font-Weight: 800;
+    font-size: 1.8svw;
+    text-transform: uppercase;
+    padding-top: 1svw;
+    padding-bottom: 1svw;
+    padding-right: 3svw;
+    padding-left: 3svw;
+    border-radius: 5px;
+    display: block;
+    width: fit-content;
+    font-family: inherit;
+    transition: background-color .1s ease-in-out, color .1s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+    @media(max-width: ${TabletBreakPoint}){
+        font-size: 3.7svw;
+    }
+    @media(max-width: ${MobileBreakPoint}){
+        font-size: 5.7svw;
+        padding-top: 3svw;
+        padding-bottom: 3svw;
+        padding-right: 5svw;
+        padding-left: 5svw;
+    }
+`
+export const RedLinkButtonElement=styled(Link)<{hover?: boolean}>`
+   ${RedButtonStyle}
+`
+
+interface RedLinkButtonProps{
+    to: string,
+    style?: React.CSSProperties,
+    onClick?: ()=>any,
+    hover?: boolean
+}
+export const RedLinkButton=({to, style, onClick, hover, children}: PropsWithChildren<RedLinkButtonProps>)=>{
+
+    const [btnHover, setHover]=useState(hover || false)
+
+
+    return <RedLinkButtonElement 
+    onMouseEnter={()=>setHover(!btnHover)}
+    onMouseLeave={()=>setHover(!btnHover)}
+    to={to} 
+    style={style} 
+    onClick={onClick} 
+    hover={btnHover}>{children}</RedLinkButtonElement>
+}
+
+const RedButtonElement=styled.button<{hover: boolean}>`
+${RedButtonStyle}
+`
+interface RedButtonProps{
+    style?: React.CSSProperties,
+    onClick?: ()=>any,
+    hover?: boolean
+}
+export const RedButton=({style, onClick, hover, children}: PropsWithChildren<RedButtonProps>)=>{
+
+    const [btnHover, setHover]=useState(hover || false)
+
+    return <RedButtonElement
+    onMouseEnter={()=>setHover(!btnHover)}
+    onMouseLeave={()=>setHover(!btnHover)}
+    style={style} 
+    onClick={onClick} 
+    hover={btnHover}>
+        {children}
+    </RedButtonElement>
+}

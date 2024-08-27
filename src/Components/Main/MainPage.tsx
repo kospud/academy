@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AnyInterestPhrase, Disk, ExternalLink, PageContainer, PageContent, PageContentBlock, PageContentBlockHeader, PageContentColumnsBlock, PageContentText, PageContentTextBlock, PageHeader, PageMobileHeder, PageSmallHeader, PageTopBlock, PageTopBlockAlbums, Spacer } from '../PageBlocks'
+import { AnyInterestPhrase, Disk, ExternalLink, PageContainer, PageContent, PageContentBlock, PageContentBlockHeader, PageContentColumnsBlock, PageContentText, PageContentTextBlock, PageHeader, PageSmallHeader, PageTopBlock, PageTopBlockAlbums, Spacer } from '../PageBlocks'
 import Album from './Album'
 import { ReactComponent as pageHeader } from "../../img/main/HeaderDesktop.svg"
-import {ReactComponent as academy} from "../../img/main/HederMobileAcademy.svg"
-import {ReactComponent as grecords} from "../../img/main/HeaderMobileGrecords.svg"
+import { ReactComponent as academy } from "../../img/main/HederMobileAcademy.svg"
+import { ReactComponent as grecords } from "../../img/main/HeaderMobileGrecords.svg"
 import Preloader from '../Preloader'
 import metalica from "../../img/main/Metalica.webp"
 import bowie from "../../img/main/Bowie.webp"
@@ -15,7 +15,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import parse from "html-react-parser"
-import CourseCarousel from './Course'
+import CourseCarousel from '../Course/CourseCarousel'
 import { PageScrollbarContext } from '../Providers/PageScrollbarContextProvider'
 import ArticleCarousel from '../Article'
 import { isDesktop, isMobile, isTablet } from 'react-device-detect'
@@ -111,7 +111,7 @@ function MainPage() {
 
   useGSAP(() => {
 
-    function setAnimations(){
+    function setAnimations() {
       const tl = gsap.timeline(
         {
           scrollTrigger: {
@@ -124,7 +124,7 @@ function MainPage() {
           }
         })
       pageTopBlockAlbums.forEach(({ startPosition, endPosition, startPositionMobile, endPositionMobile }, index) => {
-        tl.fromTo(`#a${index}`,isDesktop || isTablet? startPosition : startPositionMobile,isDesktop || isTablet? endPosition : endPositionMobile, 0)
+        tl.fromTo(`#a${index}`, isDesktop || isTablet ? startPosition : startPositionMobile, isDesktop || isTablet ? endPosition : endPositionMobile, 0)
       })
       const diskTl = gsap.timeline({
         scrollTrigger: {
@@ -160,7 +160,7 @@ function MainPage() {
       scrollbar.addListener(ScrollTrigger.update)
       console.log('desktop animations')
       setAnimations()
-    }else if(isMobile){
+    } else if (isMobile) {
       console.log('mobile animations')
       setAnimations()
     }
@@ -177,12 +177,12 @@ function MainPage() {
     loadAllImages();
   }, [])
 
-  useEffect(()=>{
-    return ()=>{
+  useEffect(() => {
+    return () => {
       console.log('animations destroyed?')
       gsap.killTweensOf("*");
     }
-  },[])
+  }, [])
   return (
     <>
       <Preloader isLoading={isLoading} />
@@ -198,43 +198,44 @@ function MainPage() {
               />)
             }
           </PageTopBlockAlbums>
-          {!isDesktop && !isTablet ? <PageMobileHeder lines={[academy, grecords]}/> : <PageHeader header={pageHeader} />}
-          <PageSmallHeader>{pageSmallHeader.toUpperCase()}</PageSmallHeader>
+          <PageHeader lines={isDesktop || isTablet ? [pageHeader] : [academy, grecords]} smallHeader={pageSmallHeader}/>
         </PageTopBlock>
         <PageContent>
           <PageContentBlock id='contentBlock'>
-            {isDesktop || isTablet && <Disk id='disk' />}
-            <PageContentBlockHeader type='h1' threshold={0.5}>{pageBloc1Hedaer.toUpperCase()}</PageContentBlockHeader>
-            <PageContentColumnsBlock type='div' threshold={0.5}>
+            {isDesktop || isTablet ? <Disk id='disk' /> : <></>}
+            <PageContentBlockHeader type='h1'>{pageBloc1Hedaer}</PageContentBlockHeader>
+            <PageContentColumnsBlock type='div'>
               <PageContentTextBlock>
-                <PageContentText weight={500}>{pageBlock1Text1.toUpperCase()}</PageContentText>
+                <PageContentText weight={500} upperCase>{pageBlock1Text1}</PageContentText>
                 <Spacer />
                 <PageContentText weight={300}>{pageBlock1Text2}</PageContentText>
               </PageContentTextBlock>
             </PageContentColumnsBlock>
-            <AnyInterestPhrase type='a' threshold={0.5}>
-              {parse(!isDesktop && !isTablet ? anyInterstPhraseMobile.toUpperCase() : anyInterstPhrase.toUpperCase())}
-            </AnyInterestPhrase>
-            <PageContentColumnsBlock type='div' threshold={0.5}>
+            <AnyInterestPhrase phrase={!isDesktop && !isTablet ? anyInterstPhraseMobile : anyInterstPhrase}/>
+            <PageContentColumnsBlock type='div'>
               <PageContentTextBlock>
                 <PageContentText weight={300}>{pageBlock1Text3}</PageContentText>
                 <Spacer />
                 <PageContentText weight={300}>{pageBlock1Text4}</PageContentText>
-                <ExternalLink style={{ marginBottom: '8.3svh',marginTop: '8.3svh' }} to='/'>ПОДРОБНЕЕ</ExternalLink>
+                <Spacer />
+                <Spacer />
+                <ExternalLink to='/'>ПОДРОБНЕЕ</ExternalLink>
+                {isDesktop || isTablet ? <><Spacer />
+                  <Spacer /></> : <></>}
               </PageContentTextBlock>
             </PageContentColumnsBlock>
           </PageContentBlock>
           <PageContentBlock>
-            <PageContentBlockHeader type='h1' threshold={0.5}>
-              {pageBlock2Hedaer.toUpperCase()}
+            <PageContentBlockHeader type='h1'>
+              {pageBlock2Hedaer}
             </PageContentBlockHeader>
             <CourseCarousel />
           </PageContentBlock>
           <PageContentBlock>
-            <PageContentBlockHeader type='h1' threshold={0.5}>{pageBlock3Header.toUpperCase()}</PageContentBlockHeader>
+            <PageContentBlockHeader type='h1'>{pageBlock3Header}</PageContentBlockHeader>
             <ArticleCarousel />
           </PageContentBlock>
-          <Footer/>
+          <Footer />
         </PageContent>
       </PageContainer>
     </>

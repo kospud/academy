@@ -7,7 +7,7 @@ export const PublicRoutes=[
         path: MAIN_ROUTE
     },
     {
-        component: React.lazy(()=>import("./../CoursePage/CoursePage")),
+        component: React.lazy(()=>import("../Course/CoursePage")),
         path: COURSE_PAGE_ROUTE
     }
 ]

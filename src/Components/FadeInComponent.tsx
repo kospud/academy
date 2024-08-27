@@ -33,7 +33,7 @@ const values: Record<string, any> = {
 }
 
 interface FadeInComponentProps {
-    threshold: number;
+    threshold?: number;
     type: string,
     [key: string]: any
 }
@@ -41,13 +41,13 @@ function FadeInComponent({ children, threshold, type, ...rest }: PropsWithChildr
 
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold: threshold
+        threshold: threshold || 0.5
     })
 
     const Element = values[type]
-
+    
     return (
-        <Element inView={inView} ref={ref} {...rest}>
+        <Element inView={threshold===0? true : inView} ref={ref} {...rest}>
             {children}
         </Element>
     )
