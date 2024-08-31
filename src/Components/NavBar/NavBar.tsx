@@ -6,10 +6,10 @@ import BurgerMenu from './BurgerMenu'
 import logo from '../../img/logoWhite.webp'
 import { PiTranslate } from 'react-icons/pi'
 import { SocialMedia } from '../Footer'
-import { MAIN_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
+import { BLOG_ROUTE, MAIN_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
 
 const NavBarContainer = styled.div`
-    position: absolute;
+    //position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -47,11 +47,11 @@ const desktopNavBar = [
     },
     {
         title: 'Курсы',
-        link: ''
+        link: 'courses'
     },
     {
         title: 'Контакты',
-        link: ''
+        link: 'contacts'
     }
 ]
 function DesktopNavBar() {
@@ -99,6 +99,7 @@ const MenuContainer=styled.div<{isOpen: boolean}>`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 `
 
 const MenuContent=styled.div`
@@ -131,15 +132,15 @@ const menuItems=[
     },
     {
         title: 'курсы',
-        link: ''
+        link: '/courses'
     },
     {
         title: 'Блог',
-        link: ''
+        link: BLOG_ROUTE
     },
     {
         title: 'Контакты',
-        link: ''
+        link: '/contacts'
     }
 ]
 interface MenuProps{

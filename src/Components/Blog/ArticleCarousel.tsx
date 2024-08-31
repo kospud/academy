@@ -1,19 +1,19 @@
 import React, { PropsWithChildren } from 'react'
 import { styled } from 'styled-components'
-import FadeInComponent from './FadeInComponent'
+import FadeInComponent from '../FadeInComponent'
 import Slider, { InnerSlider, Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import article1 from '../img/Article/article1.png'
-import article2 from '../img/Article/article2.png'
-import article3 from '../img/Article/article3.png'
-import article4 from '../img/Article/article4.png'
-import { ExternalLink, FontSize18, FontSize36, RedLinkButton } from './PageBlocks';
+import article1 from '../../img/Article/article1.png'
+import article2 from '../../img/Article/article2.png'
+import article3 from '../../img/Article/article3.png'
+import article4 from '../../img/Article/article4.png'
+import { ExternalLink, FontSize18, FontSize36, RedLinkButton } from '../PageBlocks';
 import { Link } from 'react-router-dom';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
-import { MarginBottom45, MarginBottom24 } from './Gaps';
-import { MobileBreakPoint, TabletBreakPoint } from './Utils/Consts';
-import SliderWithCustomArrows from './SliderWithCustomArrows';
+import { MarginBottom45, MarginBottom24 } from '../Gaps';
+import { BLOG_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts';
+import SliderWithCustomArrows from '../SliderWithCustomArrows';
 
 const ArticleElement = styled.div`
 width: 96%;
@@ -89,7 +89,7 @@ text-transform: uppercase;
     }
 `
 
-interface Article {
+export interface Article {
     photo: string,
     date: string,//Пока строка, а там разберемся
     title: string,
@@ -127,7 +127,7 @@ interface ArticleComponentProps {
     article: Article
 }
 
-const Article = ({ article }: ArticleComponentProps) => {
+export const Article = ({ article }: ArticleComponentProps) => {
 
     const { photo, title, date, id } = article;
 
@@ -137,7 +137,7 @@ const Article = ({ article }: ArticleComponentProps) => {
             <ArticleInfo>
             <ArticleDate>{date}</ArticleDate>
             <ArticleTitle>{title}</ArticleTitle>
-            <ExternalLink to={`/academy/articles/${id}`}>ЧИТАТЬ</ExternalLink>
+            <ExternalLink to={`/blog/${id}`}>ЧИТАТЬ</ExternalLink>
             </ArticleInfo>
         </ArticleElement>
     )
@@ -193,7 +193,7 @@ function ArticleCarousel() {
             <ArticleCarouselContent>
                 {isDesktop || isTablet ? <ArticlesSlider articles={MockArticles} /> : <ArticleList articles={MockArticles} />}
                 <AllArticlesBlock>
-                    <RedLinkButton hover to={'/academy/articles'}>Все статьи</RedLinkButton>
+                    <RedLinkButton hover to={BLOG_ROUTE}>Все статьи</RedLinkButton>
                 </AllArticlesBlock>
             </ArticleCarouselContent>
         </ArticleCarouselContainer>

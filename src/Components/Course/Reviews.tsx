@@ -149,13 +149,11 @@ const CarouselContainer=styled.div`
     width: 100%;
     ${MarginBootom90}
 `
-interface ReviewProps {
-    //reviews?: Review[]
+interface ReviewsProps {
+    reviews: Review[]
 }
-function Reviews(/*{ reviews }: ReviewProps*/) {
+function Reviews({ reviews }: ReviewsProps) {
 
-
-    const reviews = mockReview
     const slideToShow = isMobile ? isTablet ? 2 : 1 : 3;
     return (
         <ReviewsContainer type='div'>

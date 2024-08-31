@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import parse from 'html-react-parser'
 import { isDesktop, isTablet } from 'react-device-detect';
 import { MarginTop90, MarginBottom45, MarginBottom24 } from "./Gaps";
-import { MobileBreakPoint, TabletBreakPoint } from "./Utils/Consts";
+import { BLOG_ROUTE, MAIN_ROUTE, MobileBreakPoint, TabletBreakPoint } from "./Utils/Consts";
 const FooterContainer=styled(FadeInComponent)`
     position: relative;
     width: 100%;
@@ -192,19 +192,19 @@ const footerBlocksDesktop=[
             },
             {
                 title: 'Политика<br/>конфиденциальности',
-                ref: ''
+                ref: 'privacyPolicy'
             },
             {
                 title: 'О нас',
-                ref: ''
+                ref: MAIN_ROUTE
             },
             {
                 title: 'Курсы',
-                ref: ''
+                ref: 'courses'
             },
             {
                 title: 'Блог',
-                ref: 'blog'
+                ref: BLOG_ROUTE
             }
         ],
         align: 'start'
@@ -245,19 +245,19 @@ const footerBlocksMobile=[
             },
             {
                 title: 'Политика<br/>конфиденциальности',
-                ref: ''
+                ref: '/privacypolicy'
             },
             {
                 title: 'О нас',
-                ref: ''
+                ref: MAIN_ROUTE
             },
             {
                 title: 'Курсы',
-                ref: ''
+                ref: '/courses'
             },
             {
                 title: 'Блог',
-                ref: 'blog'
+                ref: BLOG_ROUTE
             }
         ],
         align: 'start'

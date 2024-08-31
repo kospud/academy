@@ -4,58 +4,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import FadeInComponent from '../FadeInComponent';
 import { styled } from 'styled-components';
-import { PageContentColumnsBlock, PageContentText, PageContentTextBlock, Spacer } from '../PageBlocks';
+import { PageColumnsBlockPhoto, PageContentColumnsBlock, PageContentText, PageContentTextBlock, Spacer } from '../PageBlocks';
 import { MarginBootom180, MarginBootom90, MarginBottom45, MarginBottom60 } from '../Gaps';
 import { MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts';
 import mentorPhoto from "../../img/Courses/0/mentorPhoto.png"
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
 import SliderWithCustomArrows from '../SliderWithCustomArrows';
 
-const MentorPhotoContainer = styled.div`
-display: flex;
-flex-direction: column;
-width: 47%;
-display: flex;
-flex-direction: column;
-${MarginBottom60}
-    @media (max-width: ${TabletBreakPoint}) {
-        width: 55%;
-    }
-    @media (max-width: ${MobileBreakPoint}) {
-        width: 100%;
-    }
-`
-
-const MentorPhoto = styled.div`
-width: 98%;
-display: flex;
-flex-direction: column;
-align-items: center;
-
-img{
-    width: 100%;
-    object-fit: cover;
-    ${MarginBottom45}
-}
-
-a{
-    font-size: 1.8svw;
-    text-transform: uppercase;
-    color:rgba(204, 51, 39, 1);
-    font-weight: 600;
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
-
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 6svw;
-    }
-}
-
-@media (max-width: ${MobileBreakPoint}) {
-        width: 100%;
-    }
-`
 export interface Mentor {
     photo: string,
     title: string,
@@ -68,12 +23,7 @@ const MentorCard = ({ mentor }: PropsWithChildren<{ mentor: Mentor }>) => {
     return (
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center'}}>
             <PageContentColumnsBlock type='div' threshold={0} style={{marginBottom: 0}}>
-                <MentorPhotoContainer>
-                    <MentorPhoto>
-                        <img src={photo} alt={title} />
-                        <a>{title}</a>
-                    </MentorPhoto>
-                </MentorPhotoContainer>
+                <PageColumnsBlockPhoto src={photo} description={title}/>
                 <PageContentTextBlock>
                     {
                         description.map((block, index, arr) => <>

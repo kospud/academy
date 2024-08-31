@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AnyInterestPhrase, Disk, ExternalLink, PageContainer, PageContent, PageContentBlock, PageContentBlockHeader, PageContentColumnsBlock, PageContentText, PageContentTextBlock, PageHeader, PageSmallHeader, PageTopBlock, PageTopBlockAlbums, Spacer } from '../PageBlocks'
 import Album from './Album'
-import { ReactComponent as pageHeader } from "../../img/main/HeaderDesktop.svg"
-import { ReactComponent as academy } from "../../img/main/HederMobileAcademy.svg"
-import { ReactComponent as grecords } from "../../img/main/HeaderMobileGrecords.svg"
+import pageHeader from "../../img/main/HeaderDesktop.svg"
+import academy from "../../img/main/HederMobileAcademy.svg"
+import grecords from "../../img/main/HeaderMobileGrecords.svg"
 import Preloader from '../Preloader'
 import metalica from "../../img/main/Metalica.webp"
 import bowie from "../../img/main/Bowie.webp"
@@ -17,7 +17,7 @@ import { useGSAP } from '@gsap/react'
 import parse from "html-react-parser"
 import CourseCarousel from '../Course/CourseCarousel'
 import { PageScrollbarContext } from '../Providers/PageScrollbarContextProvider'
-import ArticleCarousel from '../Article'
+import ArticleCarousel from '../Blog/ArticleCarousel'
 import { isDesktop, isMobile, isTablet } from 'react-device-detect'
 import Footer from '../Footer'
 
@@ -198,7 +198,7 @@ function MainPage() {
               />)
             }
           </PageTopBlockAlbums>
-          <PageHeader lines={isDesktop || isTablet ? [pageHeader] : [academy, grecords]} smallHeader={pageSmallHeader}/>
+          <PageHeader lines={isDesktop || isTablet ? [pageHeader] : [academy, grecords]} smallHeader={pageSmallHeader} />
         </PageTopBlock>
         <PageContent>
           <PageContentBlock id='contentBlock'>
@@ -211,7 +211,7 @@ function MainPage() {
                 <PageContentText weight={300}>{pageBlock1Text2}</PageContentText>
               </PageContentTextBlock>
             </PageContentColumnsBlock>
-            <AnyInterestPhrase phrase={!isDesktop && !isTablet ? anyInterstPhraseMobile : anyInterstPhrase}/>
+            <AnyInterestPhrase phrase={!isDesktop && !isTablet ? anyInterstPhraseMobile : anyInterstPhrase} />
             <PageContentColumnsBlock type='div'>
               <PageContentTextBlock>
                 <PageContentText weight={300}>{pageBlock1Text3}</PageContentText>

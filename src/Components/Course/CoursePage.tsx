@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react'
 import { AnyInterestPhrase, PageContainer, PageContent, PageContentBlock, PageContentBlockHeader, PageContentColumnsBlock, PageContentText, PageContentTextBlock, PageHeader, PageSmallHeader, PageTopBlock, RedButton, RedLinkButton, Spacer } from '../PageBlocks'
 import { isDesktop, isTablet } from 'react-device-detect'
-import { ReactComponent as pageHeader } from "../../img/Courses/0/DesktopHeader.svg"
+import pageHeader from "../../img/Courses/0/DesktopHeader.svg"
 import Footer from '../Footer'
-import { ReactComponent as mobileHeader1 } from "../../img/Courses/0/MobileHeader1.svg"
-import { ReactComponent as mobileHeader2 } from "../../img/Courses/0/MobileHeader2.svg"
-import { ReactComponent as mobileHeader3 } from "../../img/Courses/0/MobileHeader3.svg"
+import  mobileHeader1 from "../../img/Courses/0/MobileHeader1.svg"
+import mobileHeader2  from "../../img/Courses/0/MobileHeader2.svg"
+import  mobileHeader3  from "../../img/Courses/0/MobileHeader3.svg"
 import { PageScrollbarContext } from '../Providers/PageScrollbarContextProvider'
 import CourseCarousel from './CourseCarousel'
 import Mentors from './Mentors'
@@ -15,7 +15,7 @@ import Accordion, { AccordionItem } from './Accordion'
 import GifsBlock from './GifsBlock'
 import PriceBlock from './PriceBlock'
 import Reviews from './Reviews'
-
+import voice from '../../audio/sound.mp3'
 
 const CourseDesktop = {
     title: [pageHeader],
@@ -121,6 +121,20 @@ const CourseDesktop = {
             installment: true,
             description: ['Рассрочка на 24 месяца', 'без первого взноса']
         }
+    ],
+    rewiews: [
+        {
+            name: 'Ирина',
+            review: voice
+        },
+        {
+            name: 'Алексей',
+            review: voice
+        },
+        {
+            name: 'Ираклий',
+            review: voice
+        },
     ]
 
 }
@@ -228,6 +242,20 @@ const CourseMobile = {
             installment: true,
             description: ['Рассрочка на 24 месяца', 'без первого взноса']
         }
+    ],
+    rewiews: [
+        {
+            name: 'Ирина',
+            review: voice
+        },
+        {
+            name: 'Алексей',
+            review: voice
+        },
+        {
+            name: 'Ираклий',
+            review: voice
+        },
     ]
 }
 
@@ -303,7 +331,7 @@ function CoursePage() {
                 </PageContentBlock>
                 <PageContentBlock>
                     <PageContentBlockHeader type='h1'>Отзывы</PageContentBlockHeader>
-                    <Reviews/>
+                    <Reviews reviews={course.rewiews}/>
                 </PageContentBlock>
                 <PageContentBlock>
                     <PageContentBlockHeader type='h1'>Все наши курсы</PageContentBlockHeader>

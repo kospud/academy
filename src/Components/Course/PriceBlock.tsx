@@ -184,7 +184,7 @@ const CourseForm = ({ onFinish }: CourseFormProps) => {
                 <Checkbox indeterminate={confirmChecked} onChange={()=>setChecked(!confirmChecked)}><CheckboxSpan>я соглашаюсь на обработку данных</CheckboxSpan></Checkbox>
             </Form.Item>
         </Form>
-        <RedButton style={{ alignSelf: 'center' }} hover onClick={() => form.submit()}>Оставить заявку</RedButton>
+        <RedButton style={{ alignSelf: 'center', marginTop: '2svw' }} hover onClick={() => form.submit()}>Оставить заявку</RedButton>
     </FormContainer>
 }
 
