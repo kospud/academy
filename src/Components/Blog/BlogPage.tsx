@@ -28,6 +28,27 @@ width: 100%;
 object-fit: cover;
 ${MarginBootom90}
 `
+
+
+const mockBlogPage={
+    title: mockHeader,
+    headerImg: blogHeaderImg,
+    contentBlock1: {
+        textBlocks: [{
+            weight: 500,
+            uppercase: true,
+            content: 'Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed.'
+
+        },
+    {
+        weight: 300,
+        uppercase: false,
+        content: 'Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed.'
+    }],
+        interestPhrase: 'ЗДЕСЬ <span>БУДЕТ</span> НАПИСАНО ЧТО-ТО ИНТЕРЕСНОЕ, НО ЧТО МЫ ПОКА <span>НЕ ПРИДУМАЛИ</span>. ЗДЕСЬ <span>БУДЕТ</span> НАПИСАНО ЧТО-ТО ИНТЕРЕСНОЕ, НО ЧТО МЫ ПОКА <span>НЕ ПРИДУМАЛИ</span>.'
+    }
+
+}
 function BlogPage() {
 
     const description= ['Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. ',
@@ -40,16 +61,32 @@ function BlogPage() {
     const description2=['Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. ',
         'Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. '
     ]
+
+    const blogPage=mockBlogPage
   return (
     <PageContainer>
         <PageTopBlock>
             <BlogPageHeaderBlock>
-                <div><img src={mockHeader} style={{ width: '100%', flexGrow: 0 }}/></div>
+                <div><img src={blogPage.title} style={{ width: '100%', flexGrow: 0 }}/></div>
                 <Spacer/>
-                <BlogPageImg src={blogHeaderImg} alt='headerImg'/>
+                <BlogPageImg src={blogPage.headerImg} alt='headerImg'/>
             </BlogPageHeaderBlock>
         </PageTopBlock>
         <PageContent>
+            <PageContentBlock>
+                <PageContentColumnsBlock type='div' threshold={0.1}>
+                    <PageContentTextBlock>
+                        {
+                            blogPage.contentBlock1.textBlocks.map(({weight, uppercase, content}, index, arr)=><>
+                            <PageContentText key={index} weight={weight} upperCase={uppercase}>{content}</PageContentText>
+                            {index!==arr.length-1 && <Spacer/>}
+                            </>
+                            )
+                        }
+                    </PageContentTextBlock>
+                </PageContentColumnsBlock>
+                <AnyInterestPhrase phrase={blogPage.contentBlock1.interestPhrase}/>
+            </PageContentBlock>
             <PageContentBlock>
                 <PageContentColumnsBlock type='div' threshold={0.1}>
                 <PageColumnsBlockPhoto src={photo}/>

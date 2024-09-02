@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useRef } from 'react'
+import React, { PropsWithChildren, useRef, useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,6 +6,7 @@ import { styled } from 'styled-components';
 import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 import { MobileBreakPoint, TabletBreakPoint } from './Utils/Consts';
+import { isDesktop } from 'react-device-detect';
 
 enum arrowType {
     prev,
@@ -63,18 +64,43 @@ pointer-events: none;
     width: 113svw;
 }
 `
+
+const DotsContainer=styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+`
+
+const Dot=styled.div<{selected: boolean}>`
+    width: 10px;
+    aspect-ratio: 1/1;
+    background-color: red;
+    opacity: ${({selected})=>selected? '0.5': '1'};
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+    transition: opacity .3s ease-in-out;
+`
 function SliderWithCustomArrows({ children, slidesToShow, childrenLength, infinite }: PropsWithChildren<SliderProps>) {
 
 
     const sliderRef = useRef<Slider>(null)
+
+    const [selectedIndex, setSelectedIndex]=useState(0)
+    
 
     const isSlided = infinite ?? childrenLength > slidesToShow
     const settings: Settings = {
         arrows: false,
         slidesToScroll: 1,
         infinite: isSlided,
-        dots: isSlided,
-        slidesToShow: slidesToShow
+        dots: false,
+        slidesToShow: slidesToShow,
+        beforeChange(currentSlide, nextSlide) {
+            setSelectedIndex(nextSlide)
+        },
     }
 
     const nextSlide=()=>{
@@ -86,7 +112,7 @@ function SliderWithCustomArrows({ children, slidesToShow, childrenLength, infini
     }
     return (
         <SliderContainer>
-            {isSlided && <ArrowsContainer>
+            {isSlided && isDesktop && <ArrowsContainer>
             <CustomArrow type={arrowType.prev} onClick={prevSlide}>
                 <RiArrowLeftWideFill />
             </CustomArrow>
@@ -99,6 +125,12 @@ function SliderWithCustomArrows({ children, slidesToShow, childrenLength, infini
                     children
                 }
             </Slider>
+            {isSlided && <DotsContainer>
+                    {
+
+                        Array(childrenLength).fill(null).map((_, index)=><Dot key={index} selected={selectedIndex===index}/>)
+                    }
+                </DotsContainer>}
         </SliderContainer>
     )
 }
