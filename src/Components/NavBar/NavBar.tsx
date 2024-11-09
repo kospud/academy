@@ -7,6 +7,7 @@ import logo from '../../img/logoWhite.webp'
 import { PiTranslate } from 'react-icons/pi'
 import { SocialMedia } from '../Footer'
 import { BLOG_ROUTE, MAIN_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
+import { RedLinkButton } from '../PageBlocks'
 
 const NavBarContainer = styled.div`
     //position: absolute;
@@ -29,6 +30,17 @@ align-items: center;
 @media (max-width: ${MobileBreakPoint}){
     width: 88%;
 }
+`
+
+const CentralNavBarItems=styled.div`
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
 `
 function NavBar() {
     return (
@@ -64,9 +76,13 @@ function DesktopNavBar() {
         textTransform: 'uppercase'
     }
     return <NavBarContent>
+        <Link to={''} style={{...LinkStyle, color: 'rgba(204, 51, 39, 1)' }}>Академия</Link>
+        <CentralNavBarItems>
         {
             desktopNavBar.map(({title,link})=><Link to={link} style={LinkStyle}>{title}</Link>)
         }
+        </CentralNavBarItems>
+        <RedLinkButton style={{fontSize: '1.25svw', padding: '0.2em 0.5em', fontWeight: 600}} to={'https://kospud.github.io/academyapp'}>Личный кабинет</RedLinkButton>
     </NavBarContent>
 }
 
@@ -108,13 +124,14 @@ flex-direction: column;
 align-items: center;
 justify-content: space-between;
 color: rgba(22, 21, 21, 1);
-height: 44.5%;
+height: 60%;
 a{
     text-decoration: none;
     color: inherit;
     font-weight: 800;
     font-size: 6.6svw;
     text-transform: uppercase;
+    text-align: center;
     @media (max-width: ${TabletBreakPoint}){
         font-size: 6.6svw;
     }
@@ -141,8 +158,14 @@ const menuItems=[
     {
         title: 'Контакты',
         link: '/contacts'
+    },
+    {
+        title: 'Личный кабинет',
+        link: 'https://kospud.github.io/academyapp'
     }
 ]
+
+
 interface MenuProps{
     isOpen: boolean,
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>

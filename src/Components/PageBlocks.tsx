@@ -362,7 +362,7 @@ export const Disk = styled.div`
 
 export const RedButtonStyle = css<{ hover?: boolean }>`
     background-color: ${({ hover }) => hover ? 'rgba(204, 51, 39, 1)' : 'unset'};
-    border: solid rgba(204, 51, 39, 1);
+    border: solid rgba(204, 51, 39, 1) 2px;
     text-decoration: none;
     color: ${({ hover }) => hover ? 'rgba(235, 235, 235, 1)' : 'rgba(204, 51, 39, 1)'};
     font-Weight: 800;
