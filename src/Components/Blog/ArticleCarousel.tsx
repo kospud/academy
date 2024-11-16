@@ -8,12 +8,13 @@ import article1 from '../../img/Article/article1.png'
 import article2 from '../../img/Article/article2.png'
 import article3 from '../../img/Article/article3.png'
 import article4 from '../../img/Article/article4.png'
-import { ExternalLink, FontSize18, FontSize36, RedLinkButton } from '../PageBlocks';
+import { ExternalLink, RedLinkButton } from '../PageBlocks';
 import { Link } from 'react-router-dom';
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
-import { MarginBottom45, MarginBottom24 } from '../Gaps';
+import { marginBottom} from '../Gaps';
 import { BLOG_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts';
 import SliderWithCustomArrows from '../SliderWithCustomArrows';
+import { responsiveText } from '../text';
 
 const ArticleElement = styled.div`
 width: 96%;
@@ -40,7 +41,7 @@ const ArticlePhoto = styled.img`
 width: 100%;
 aspect-ratio: 9/10;
 object-fit: cover;
-${MarginBottom45}
+${marginBottom(45)}
 
 @media(max-width: ${MobileBreakPoint}){
     width: 35svw;
@@ -55,37 +56,27 @@ width: 80%;
 
 @media(max-width: ${MobileBreakPoint}){
     width: 55%;
-${MarginBottom45};
+${marginBottom(45)};
 align-items: start;
 }
 `
 
 const ArticleDate = styled.a`
-    ${MarginBottom24}
-    font-size: 0.9svw;
-
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 1.8svw;
-    }
-    @media(max-width: ${MobileBreakPoint}){
-        font-size: 1.9svw;
-    }
+    ${marginBottom(24)}
+    ${responsiveText(18,18,8)}
 `
 
 const ArticleTitle = styled.a`
 text-align: center;
-${MarginBottom45}
-font-size: 0.9svw;
+${marginBottom(45)}
+${responsiveText(18,18,16)}
 font-weight: 600;
 text-transform: uppercase;
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 1.8svw;
-    }
+
     @media(max-width: ${MobileBreakPoint}){
         margin-bottom: 2svh;
         width: 80%;
         text-align: start;
-        font-size: 3.8svw;
     }
 `
 

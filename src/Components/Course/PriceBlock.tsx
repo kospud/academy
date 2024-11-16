@@ -4,17 +4,18 @@ import { MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
 import FadeInComponent from '../FadeInComponent'
 import { Checkbox, Form, Input, Select } from 'antd'
 import { MaskedInput } from 'antd-mask-input'
-import { RedButton, RedButtonStyle } from '../PageBlocks'
+import { RedButton, RedButtonStyle,} from '../PageBlocks'
 import { useForm } from 'antd/es/form/Form'
-import { MarginBootom180, MarginBottom24, MarginBottom45 } from '../Gaps'
+import { marginBottom} from '../Gaps'
 import parse from 'html-react-parser'
 import { isDesktop, isMobile } from 'react-device-detect'
+import { responsiveText } from '../text'
 
 const FormContainer = styled.div`
 width: 45%;
 display: flex;
 flex-direction: column;
-${MarginBootom180}
+${marginBottom(180)}
 
 @media (max-width: ${TabletBreakPoint}){
     width: 85%;
@@ -27,17 +28,8 @@ ${MarginBootom180}
 `
 
 const miniText = css`
-font-size: 1svw;
 font-weight: 500;
-
-@media (max-width: ${TabletBreakPoint}){
-
-font-size: 1.8svw;
-}
-
-@media (max-width: ${MobileBreakPoint}){
-font-size: 3.7svw;
-}
+${responsiveText(18,18,18)}
 `
 const inputStyle = css`
     background-color: rgba(235, 235, 235, 0.2);
@@ -72,23 +64,17 @@ const FormHeader=styled.div`
 width: 100%;
 display: flex;
 justify-content: flex-end;
-${MarginBottom45}
+${marginBottom(45)}
 a{
     display: block;
     width: 50%;
-    font-size: 1.8svw;
     text-transform: uppercase;
     font-weight: 600;
     user-select: none;
     color: #CC3327;
+    ${responsiveText(36,36,36)}
 
     @media (max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-        width: 100%;
-    }
-
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 8.6svw;
         width: 100%;
     }
 }
@@ -106,7 +92,7 @@ const PriceContainer = styled(FadeInComponent)`
     width: 94%;
     display: flex;
     flex-wrap: wrap;
-    ${MarginBootom180}
+    ${marginBottom(180)}
 
     @media (max-width: ${TabletBreakPoint}){
 
@@ -200,7 +186,7 @@ width: 50%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-${MarginBootom180}
+${marginBottom(180)}
 @media (max-width: ${TabletBreakPoint}){
     width: 75%;
     align-self: center;
@@ -224,7 +210,7 @@ color: ${({ hover }) => hover ? 'rgba(22, 21, 21, 1)' : 'rgba(204, 51, 39, 1)'};
 margin-right: 2svw;
 margin-bottom: 2svw;
 
-@media(max-width: ${MobileBreakPoint}){
+/*@media(max-width: ${MobileBreakPoint}){
         font-size: 3.8svw;
         padding-top: 2svw;
         padding-bottom: 2svw;
@@ -232,7 +218,7 @@ margin-bottom: 2svw;
         padding-left: 5svw;
         margin-right: 5svw;
         margin-bottom: 5svw;
-    }
+    }*/
 `
 
 const TariffPriceElement = styled.a`

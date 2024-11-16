@@ -3,17 +3,18 @@ import FadeInComponent from '../FadeInComponent'
 import { styled } from 'styled-components'
 import coursePhoto from '../../img/Courses/Course.webp'
 import { Link } from 'react-router-dom'
-import { FontSize36, FontSize64, RedLinkButton, Spacer } from '../PageBlocks'
+import { RedLinkButton, Spacer } from '../PageBlocks'
 import Slider, { Settings } from 'react-slick'
-import { MarginBootom180 } from '../Gaps'
+import { marginBottom } from '../Gaps'
 import { MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
-import { isDesktop, isTablet } from 'react-device-detect'
+import { isDesktop, isMobile, isTablet } from 'react-device-detect'
 import soonCourse from '../../img/Courses/SoonCourse.webp'
 import SliderWithCustomArrows from '../SliderWithCustomArrows'
+import { responsiveText } from '../text'
 
-const CoursesContainer=styled(FadeInComponent)`
+const CoursesContainer = styled(FadeInComponent)`
     width: 94%;
-    ${MarginBootom180}
+    ${marginBottom(180)}
     display: flex;
     justify-content: flex-end;
 `
@@ -64,31 +65,16 @@ const CourseTitle = styled.a`
 color: rgba(204, 51, 39, 1);
 font-weight: 600;
 display: block;
-font-size: 3.3svw;
 text-transform: uppercase;
+${responsiveText(64, 64, 36)}
 
-/*@media(max-width: ${TabletBreakPoint}){
-    font-size: 6.6svw;
-}*/
-
-@media(max-width: ${MobileBreakPoint}){
-    font-size: 8.6svw;
-}
 `
 
 const CourseDescription = styled.a`
 color: rgba(235, 235, 235, 1);
 font-weight: 400;
 display: block;
-
-font-size: 1.8svw;
-/*@media(max-width: ${TabletBreakPoint}){
-    font-size: 3.7svw;
-}*/
-
-@media(max-width: ${MobileBreakPoint}){
-    font-size: 3.3svw;
-}
+${responsiveText(36, 36, 14)}
 
 `
 
@@ -114,17 +100,22 @@ function Course({ course }: CourseProps) {
 
 const CourseCarousel = () => {
 
-    const slidesToShow=isDesktop || isTablet? 2 : 1
+    const slidesToShow = isDesktop || isTablet ? 2 : 1
 
     return (
         <CoursesContainer type='div'>
-        <CourseCarouselElement >
-            <SliderWithCustomArrows slidesToShow={slidesToShow} childrenLength={courses.length}>
-                {
-                    courses.map(course => <Course course={course} />)
-                }
-            </SliderWithCustomArrows>
-        </CourseCarouselElement>
+            {courses.length === 1 ? <div style={{ width: isMobile? '100%' : '50%', alignSelf: 'end' }}>
+                <Course course={courses[0]} />
+            </div>
+                :
+                <CourseCarouselElement >
+                    <SliderWithCustomArrows slidesToShow={slidesToShow} childrenLength={courses.length}>
+                        {
+                            courses.map(course => <Course course={course} />)
+                        }
+                    </SliderWithCustomArrows>
+                </CourseCarouselElement>
+            }
         </CoursesContainer>
     )
 }

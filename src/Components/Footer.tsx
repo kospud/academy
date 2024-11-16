@@ -1,15 +1,17 @@
-import {  Spacer } from "./PageBlocks";
 import React from 'react'
 import FadeInComponent from './FadeInComponent'
 import { styled } from 'styled-components'
+
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { FaTelegram } from "react-icons/fa6";
 import { TfiYoutube } from "react-icons/tfi";
 import { Link } from 'react-router-dom';
 import parse from 'html-react-parser'
 import { isDesktop, isTablet } from 'react-device-detect';
-import { MarginTop90, MarginBottom45, MarginBottom24 } from "./Gaps";
+import {marginBottom, marginTop } from "./Gaps";
 import { BLOG_ROUTE, MAIN_ROUTE, MobileBreakPoint, TabletBreakPoint } from "./Utils/Consts";
+import { responsiveText } from './text';
+
 const FooterContainer=styled(FadeInComponent)`
     position: relative;
     width: 100%;
@@ -18,17 +20,10 @@ const FooterContainer=styled(FadeInComponent)`
     display: flex;
     justify-content: center;
 
-    @media (max-width: ${TabletBreakPoint}) {
-        //height: 55svh;
-    }
-
-    @media (max-width: ${MobileBreakPoint}) {
-        //min-height: 108svh;
-    }
 `
 
 const FooterContent=styled.div`
-${MarginTop90}
+${marginTop(90)}
 width: 94%;
 display: flex;
 justify-content: space-between;
@@ -51,24 +46,17 @@ const FooterBlock=styled.div`
     }
 
     @media(max-width: ${MobileBreakPoint}){
-        ${MarginBottom45}
+        ${marginBottom(45)}
     }
 `
 
 const FooterBlockHeader=styled.a<{align?: string}>`
     font-weight: 900;
-    ${MarginBottom45}
+    ${marginBottom(45)}
     text-align: ${({align})=>align? align : 'start'};
-
-    font-size: 1.8svw;
+    ${responsiveText(36,36,36)}
     text-transform: uppercase;
-    @media(max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
 
-    @media(max-width: ${MobileBreakPoint}){
-        font-size: 8svw;
-    }
 `
 
 const FooterBlockContetnt=styled.div<{align?: string}>`
@@ -81,16 +69,10 @@ a{
     text-decoration: none;
     color: inherit;
     font-weight: 800;
-    ${MarginBottom24}
-    font-size: 0.9svw;
+    ${marginBottom(24)}
+    ${responsiveText(18, 18, 18)}
     text-transform: uppercase;
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 1.8svw;
-    }
 
-    @media(max-width: ${MobileBreakPoint}){
-        font-size: 4.3svw;
-    }
 }
 `
 
@@ -100,21 +82,18 @@ const Socials=styled.div<{bottom?: string}>`
     left: 50%;
     transform: translateX(-50%);
     width: 10svw;
-    font-size: 1.8svw;
     display: flex;
     justify-content: space-around;
-    
+    ${responsiveText(32,32,32)}
     a{
         color: rgba(22, 21, 21, 1);
     }
 
     @media (max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
         width: 21svw;
     }
 
     @media(max-width: ${MobileBreakPoint}){
-        font-size: 8svw;
         width: 35svw;
     }
 `
@@ -134,16 +113,12 @@ a{
     text-decoration: none;
     color: inherit;
     font-weight: 800;
-    font-size: 0.9svw;
     text-transform: uppercase;
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 1.8svw;
-    }
+    ${responsiveText(18,18,18)}
 
     @media(max-width: ${MobileBreakPoint}){
         right: 50%;
         transform: translate(50%,0);
-        font-size: 4.3svw;
         bottom: 7svh;
     }
 }

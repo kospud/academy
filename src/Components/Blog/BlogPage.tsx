@@ -5,7 +5,7 @@ import Footer from '../Footer'
 import styled from 'styled-components'
 import mockHeader from '../../img/Blog/mockBlogPage/mockPageHeader.svg'
 import blogHeaderImg from '../../img/Blog/mockBlogPage/BlogHeaderImage.webp'
-import { MarginBootom90 } from '../Gaps'
+import { marginBottom } from '../Gaps'
 import { MobileBreakPoint } from '../Utils/Consts'
 import photo from '../../img/Blog/mockBlogPage/blogPagePhoto.png'
 const BlogPageHeaderBlock=styled.div`
@@ -26,7 +26,7 @@ position: relative;
 const BlogPageImg=styled.img`
 width: 100%;
 object-fit: cover;
-${MarginBootom90}
+${marginBottom(90)}
 `
 
 

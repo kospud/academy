@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import FadeInComponent from '../FadeInComponent';
 import { styled } from 'styled-components';
 import { PageColumnsBlockPhoto, PageContentColumnsBlock, PageContentText, PageContentTextBlock, Spacer } from '../PageBlocks';
-import { MarginBootom180, MarginBootom90, MarginBottom45, MarginBottom60 } from '../Gaps';
+import { marginBottom} from '../Gaps';
 import { MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts';
 import mentorPhoto from "../../img/Courses/0/mentorPhoto.png"
 import { isDesktop, isMobile, isTablet } from 'react-device-detect';
@@ -38,7 +38,7 @@ const MentorCard = ({ mentor }: PropsWithChildren<{ mentor: Mentor }>) => {
 }
 const MentorsCarouselContainer = styled(FadeInComponent)`
     width: 100%;
-    ${MarginBootom180};
+    ${marginBottom(180)};
     align-self: center;
 `
 

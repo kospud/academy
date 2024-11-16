@@ -1,56 +1,27 @@
 import styled, { css } from "styled-components";
 import FadeInComponent from "./FadeInComponent";
 import { Link } from "react-router-dom";
-import { PropsWithChildren, useContext, useEffect, useRef, useState } from "react";
+import { PropsWithChildren, useState } from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import disk from "../img/disk.webp"
 import { isDesktop, isMobile, isTablet } from "react-device-detect";
 import NavBar from "./NavBar/NavBar";
-import { MarginBootom90, MarginBottom45, MarginBottom60 } from "./Gaps";
-import { MobileBreakPoint, TabletBreakPoint } from "./Utils/Consts";
+import { marginBottom } from "./Gaps";
+import { DesktopWidth, MobileBreakPoint, MobileWidth, TabletBreakPoint, TabletWidth } from "./Utils/Consts";
 import parse from 'html-react-parser'
-import { Button } from "antd";
+import { responsiveText } from "./text";
 
-export const FontSize18 = css`
-    font-size: 0.9svw;
+/*export const responsiveText = (desktop: number, tablet: number, mobile: number) => css`
+  font-size: ${(desktop / DesktopWidth * 100).toFixed(2)}svw;
 
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 1.8svw;
-    }
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 4.3svw;
-    }
-`
-export const FontSize64 = css`
-    font-size: 3.3svw;
+@media (max-width: ${TabletBreakPoint}) {
+  font-size: ${(tablet / TabletWidth * 100).toFixed(2)}svw;
+}
 
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 6.6svw;
-    }
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 11.1svw;
-    }
-`
-export const FontSize148 = css`
-font-size: 7.7svw;
-
-@media (max-width: ${TabletBreakPoint}){
-        font-size: 15.4svw;
-    }
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 15.4svw;
-    }
-`
-
-export const FontSize36 = css`
-font-size: 1.8svw;
-@media (max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 8svw;
-    }
-`
+@media (max-width: ${MobileBreakPoint}) {
+  font-size: ${(mobile / MobileWidth * 100).toFixed(2)}svw;
+}
+`*/
 
 export const PageContainerElement = styled.div`
 width: 100%;
@@ -137,17 +108,15 @@ export const PageHeader = ({ lines, smallHeader, children = undefined }: PropsWi
 
 export const PageSmallHeader = styled.h2`
     width: 46svw;
-    font-size: 3.3svw;
     text-align: center;
     text-transform: uppercase;
     margin: 0;
+    ${responsiveText(64, 36, 18)}
     @media(max-width: ${TabletBreakPoint}){
         width: 55svw;
-        font-size: 3.7svw;
     }
     @media (max-width: ${MobileBreakPoint}) {
         width: 61svw;
-        font-size: 4.3svw;
     }
 
 `
@@ -164,30 +133,21 @@ export const PageContentBlock = styled.div`
 export const PageContentBlockHeader = styled(FadeInComponent) <{ wordBreak?: boolean }>`
 margin: 0;
 margin-top: -2.4svw;
-${MarginBootom90}
+${marginBottom(90)}
 max-width: 95%;
-font-size: 7.7svw;
 text-align: center;
 font-weight: 700;
 letter-spacing: -0.4svw;
 color: #CC3327;
 text-transform: uppercase;
+${responsiveText(148,148,64)}
 word-break: ${({ wordBreak }) => wordBreak ? 'break-all' : 'normal'};
-
-@media(max-width: ${TabletBreakPoint}){
-    font-size: 15.4svw;
-}
-
-@media (max-width: ${MobileBreakPoint}) {
-    font-size: 15svw;
-    //width: fit-content;
-}
 `
 
 export const PageContentColumnsBlock = styled(FadeInComponent)`
     width: 94%;
     display: flex;
-    ${MarginBootom90}
+    ${marginBottom(90)}
     z-index: 1;
     justify-content: ${isTablet || isDesktop ? 'flex-end' : 'center'};
 
@@ -223,17 +183,11 @@ export const PageContentTextBlock = styled.div`
 export const PageContentColumnsBlockHeader=styled.a`
 display: block;
 flex-grow: 1;
-font-size: 1.8svw;
 font-weight: 700;
-${MarginBottom45}
-    text-transform: uppercase;
-    @media(max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
+${marginBottom(45)}
+${responsiveText(36, 36, 18)}
+text-transform: uppercase;
 
-    @media(max-width: ${MobileBreakPoint}){
-        font-size: 8svw;
-    }
 `
 
 type selfAlign='center' |'start' | 'end'
@@ -243,17 +197,11 @@ export const PageContentText = styled.a<{ weight: number, upperCase?: boolean, a
         font-weight: ${({ weight }) => weight};
         text-align: justify;
         letter-spacing: -2%;
-        font-size: 0.9svw;
         text-transform: ${({ upperCase }) => upperCase ? 'uppercase' : 'none'};
         align-self: ${({alignSelf})=>alignSelf? alignSelf : 'start'};
-
+        ${responsiveText(18,18,18)}
         @media (max-width: ${TabletBreakPoint}){
             width: 100%;
-            font-size: 1.8svw;
-        }
-        @media (max-width: ${MobileBreakPoint}){
-            width: 100%;
-            font-size: 3.8svw;
         }
 `
 
@@ -261,21 +209,16 @@ export const AnyInterestPhraseElement = styled(FadeInComponent)`
 display: block;
 width: 46.9%;
 font-weight: 600;
-${MarginBootom90}
+${marginBottom(90)}
 z-index: 1;
 text-align: center;
-font-size: 1.8svw;
 text-transform: uppercase;
+${responsiveText(36,36,36)}
 
 @media(max-width: ${TabletBreakPoint}){
     width: 94%;
-    font-size: 3.7svw;
 }
 
-@media(max-width: ${MobileBreakPoint}){
-    width: 94%;
-    font-size: 8.6svw;
-}
 span{
     font-style: italic;
     color: #CC3327;
@@ -295,14 +238,8 @@ const ExternalLinkElement = styled(Link)`
             text-decoration: none;
             color: inherit;
             font-weight: 600;
-            font-size: 1.8svw;
             text-transform: uppercase;
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 4.3svw;
-    }
+            ${responsiveText(36,36,18)}
 `
 interface LinkProps {
     to: string,
@@ -366,12 +303,7 @@ export const RedButtonStyle = css<{ hover?: boolean }>`
     text-decoration: none;
     color: ${({ hover }) => hover ? 'rgba(235, 235, 235, 1)' : 'rgba(204, 51, 39, 1)'};
     font-Weight: 800;
-    font-size: 1.8svw;
     text-transform: uppercase;
-    padding-top: 1svw;
-    padding-bottom: 1svw;
-    padding-right: 3svw;
-    padding-left: 3svw;
     border-radius: 5px;
     display: block;
     width: fit-content;
@@ -379,16 +311,10 @@ export const RedButtonStyle = css<{ hover?: boolean }>`
     transition: background-color .1s ease-in-out, color .1s ease-in-out;
     cursor: pointer;
     user-select: none;
-    @media(max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
-    @media(max-width: ${MobileBreakPoint}){
-        font-size: 5.7svw;
-        padding-top: 3svw;
-        padding-bottom: 3svw;
-        padding-right: 5svw;
-        padding-left: 5svw;
-    }
+    ${responsiveText(36,36,18)}
+    padding: 0.5em 1em;
+
+
 `
 export const RedLinkButtonElement = styled(Link) <{ hover?: boolean }>`
    ${RedButtonStyle}
@@ -443,7 +369,7 @@ width: 47%;
 flex-grow: 1;
 display: flex;
 flex-direction: column;
-${MarginBottom60}
+${(60)}
     @media (max-width: ${TabletBreakPoint}) {
         width: 55%;
     }
@@ -460,21 +386,14 @@ align-items: center;
 img{
     width: 100%;
     object-fit: cover;
-    ${MarginBottom45}
+    ${(45)}
 }
 
 a{
-    font-size: 1.8svw;
     text-transform: uppercase;
     color:rgba(204, 51, 39, 1);
     font-weight: 600;
-    @media (max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
-
-    @media (max-width: ${MobileBreakPoint}){
-        font-size: 6svw;
-    }
+    ${responsiveText(36, 36, 28)}
 }
 
 @media (max-width: ${MobileBreakPoint}) {

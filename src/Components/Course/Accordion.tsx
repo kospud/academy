@@ -1,11 +1,12 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import FadeInComponent from '../FadeInComponent'
 import { css, styled } from 'styled-components'
 import { MdOutlineArrowOutward } from 'react-icons/md'
 import { Spacer } from '../PageBlocks'
 import { MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
-import { MarginBootom180, MarginBootom90, MarginBottom24, MarginBottom45, MarginBottom60, MarginTop90 } from '../Gaps'
+import { marginBottom } from '../Gaps'
+import { responsiveText } from '../text'
 
 export interface AccordionItem {
     number: string,
@@ -14,18 +15,11 @@ export interface AccordionItem {
 }
 
 const AccordionHeaderText=css`
-        font-size: 1.8svw;
         text-transform: uppercase;
         font-weight: 600;
         user-select: none;
+        ${responsiveText(36,36,18)}
 
-        @media (max-width: ${TabletBreakPoint}){
-            font-size: 3.7svw
-        }
-
-        @media (max-width: ${MobileBreakPoint}){
-            font-size: 4.3svw;
-        }
 `
 
 const AccordionItemContainer = styled.div<{borderTop: boolean}>`
@@ -80,11 +74,11 @@ const ModuleLinkLogo=styled.a`
     justify-self: right;
 `
 
-const AccordionItemContent=styled.div<{isOpen: boolean}>`
+const AccordionItemContent=styled.div<{height: string | number}>`
     width: 100%;
     overflow: hidden;
-    max-height: ${({isOpen})=>isOpen? '100svh' : '0px'};
-    transition: max-height 0.3s ease-in-out;
+    height: ${({ height }) =>typeof height==='string'? height : height + 'px'};
+    transition: height .3s ease-in-out;
 
 `
 
@@ -94,25 +88,44 @@ position: relative;
 width: 35%;
 left: 30%;
 text-align: justify;
-        letter-spacing: -2%;
-        font-size: 0.9svw;
+letter-spacing: -2%;
 margin-bottom: 6.6svh;
-
+${responsiveText(18,18,14)}
 @media (max-width: ${TabletBreakPoint}){
     width: 60%;
-    font-size: 1.8svw;
     margin-bottom: 9svh;
 }
 
 @media (max-width: ${MobileBreakPoint}){
     width: 60%;
-    font-size: 3.7svw;
     left: 20%;
     margin-bottom: 4svh;
 }
 `
 const AccordionItem = ({ title, content, number }: AccordionItem) => {
     const [isOpen, setIsOpen] = useState(false)
+    const [contentMaxHeight, setContentMaxHeight] = useState(0)
+    const contentRef = useRef<HTMLDivElement>(null)
+    
+    const setContentSize = () => {
+        if (contentRef.current) {
+            const content = contentRef.current
+
+            const height = content.scrollHeight
+            setContentMaxHeight(isOpen ? height : 0)
+
+        }
+    }
+
+    useEffect(() => {
+        
+        setContentSize()
+
+        window.addEventListener('resize', setContentSize)
+
+        return () => window.removeEventListener('resize', setContentSize)
+
+    }, [isOpen])
 
     const itemClickHandler=()=>{
         setIsOpen(!isOpen)
@@ -120,14 +133,14 @@ const AccordionItem = ({ title, content, number }: AccordionItem) => {
     const borderTop=parseInt(number)-1===0
 
     const rotate=isOpen? '45deg' : '0';
-    const translate=isOpen? '6%' : '6%';
+
     return <AccordionItemContainer borderTop={borderTop}>
         <AccordionItemHeader onClick={itemClickHandler}>
             <ModuleNumber>{number}/Модуль</ModuleNumber>
             <ModuleName>{title}</ModuleName>
             <ModuleLinkLogo><MdOutlineArrowOutward style={{ scale: '1.5', transform: `translateY(6%) rotate(${rotate})`, transition: 'transform .2s ease-in-out' }} /></ModuleLinkLogo>
         </AccordionItemHeader>
-        <AccordionItemContent isOpen={isOpen}>
+        <AccordionItemContent height={contentMaxHeight} ref={contentRef}>
             <AccordionItemContentText>{content}</AccordionItemContentText>
         </AccordionItemContent>
     </AccordionItemContainer>
@@ -137,7 +150,7 @@ const AccordionContainer = styled(FadeInComponent)`
     width: 94%;
     display: flex;
     flex-direction: column;
-    ${MarginBootom180}
+    ${marginBottom(180)}
 
     @media (max-width: ${MobileBreakPoint}){
         width: 88%;

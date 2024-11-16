@@ -8,22 +8,16 @@ import interesting from "../../img/Courses/gifs/interesting.gif"
 import { queryByTitle } from '@testing-library/react'
 import { PageScrollbarContext } from '../Providers/PageScrollbarContextProvider'
 import { TabletBreakPoint, MobileBreakPoint } from '../Utils/Consts'
-import { MarginBootom180, MarginBottom24, MarginBottom45 } from '../Gaps'
+import { marginBottom, } from '../Gaps'
 import { isDesktop } from 'react-device-detect'
+import { responsiveText } from '../text'
+
 
 const Text=css`
-        font-size: 1.8svw;
         text-transform: uppercase;
         font-weight: 600;
         user-select: none;
-
-        @media (max-width: ${TabletBreakPoint}){
-            font-size: 3.7svw
-        }
-
-        @media (max-width: ${MobileBreakPoint}){
-            font-size: 4.3svw;
-        }
+        ${responsiveText(36,36,18)}
 `
 
 const GifsBlockDivider = styled.div`
@@ -36,7 +30,7 @@ const GifsBlockContainer = styled(FadeInComponent)`
     width: 94%;
     display: flex;
     height: 80svh;
-    ${MarginBootom180}
+    ${marginBottom(180)}
 
     @media (max-width: ${TabletBreakPoint}){
         height: auto;
@@ -131,14 +125,14 @@ const GifsBlockTabletElementContainer=styled.div`
     a{
         display: block;
         ${Text}
-        ${MarginBottom24}
+        ${marginBottom(24)}
     }
 
     img{
         width: 100%;
         aspect-ratio: 16/10;
         object-fit: cover;
-        ${MarginBottom45}
+        ${marginBottom(45)}
     }
 `
 

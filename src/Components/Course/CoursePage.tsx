@@ -10,7 +10,6 @@ import { PageScrollbarContext } from '../Providers/PageScrollbarContextProvider'
 import CourseCarousel from './CourseCarousel'
 import Mentors from './Mentors'
 import mentorPhoto from "../../img/Courses/0/mentorPhoto.png"
-import { MarginBootom90 } from '../Gaps'
 import Accordion, { AccordionItem } from './Accordion'
 import GifsBlock from './GifsBlock'
 import PriceBlock from './PriceBlock'

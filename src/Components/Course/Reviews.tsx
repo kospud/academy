@@ -7,7 +7,7 @@ import { isMobile, isTablet } from 'react-device-detect'
 import cassette1 from '../../img/Courses/Casset.webp'
 import cassette2 from '../../img/Courses/Casset2.webp'
 import { TabletBreakPoint, MobileBreakPoint } from '../Utils/Consts'
-import { MarginBootom180, MarginBootom90, MarginBottom45 } from '../Gaps'
+import { marginBottom, } from '../Gaps'
 import { FaPlay } from "react-icons/fa";
 import { FaStop } from "react-icons/fa";
 import useSound from 'use-sound'
@@ -65,7 +65,7 @@ const CassetContainer = styled.div`
 position: relative;
 cursor: pointer;
 z-index: 1;
-${MarginBottom45}
+${marginBottom(45)}
 img{
     width: 100%;
     object-fit: cover;
@@ -138,7 +138,7 @@ const ReviewsContainer = styled(FadeInComponent)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    ${MarginBootom180}
+    ${marginBottom(180)}
     
     @media (max-width: ${MobileBreakPoint}){
         align-items: start;
@@ -147,7 +147,7 @@ const ReviewsContainer = styled(FadeInComponent)`
 `
 const CarouselContainer=styled.div`
     width: 100%;
-    ${MarginBootom90}
+    ${marginBottom(90)}
 `
 interface ReviewsProps {
     reviews: Review[]

@@ -8,7 +8,7 @@ import Footer from '../Footer'
 import { Article } from './ArticleCarousel'
 import { styled } from 'styled-components'
 import { MobileBreakPoint, TabletBreakPoint } from '../Utils/Consts'
-import { MarginBootom90 } from '../Gaps'
+import { marginBottom } from '../Gaps'
 
 
 const MockArticles: Article[] = [
@@ -79,7 +79,7 @@ const BlogContainer=styled.div`
 
 const ArticleContainer=styled.div`
 width: 25%;
-${MarginBootom90}
+${marginBottom(90)}
 
 @media (max-width: ${TabletBreakPoint}){
     width: 50%;
